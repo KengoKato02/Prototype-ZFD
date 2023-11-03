@@ -7,6 +7,6 @@ export default class SideNavComponent extends Component {
 
   @action
   toggleProfileDropDown() {
-   this.isOpen = !this.isOpen;
+    this.isOpen = !this.isOpen;
   }
 }
