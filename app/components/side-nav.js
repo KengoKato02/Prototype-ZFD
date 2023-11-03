@@ -3,11 +3,10 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class SideNavComponent extends Component {
-  @tracked isProfileOpen = false;
+  @tracked isOpen = false;
 
   @action
   toggleProfileDropDown() {
-    this.isProfileDropDown = !this.isProfileDropDown;
-    // console.log(this.isProfileDropDown)
+   this.isOpen = !this.isOpen;
   }
 }

@@ -13,5 +13,6 @@ Router.map(function () {
     this.route('sign-up');
     this.route('dashboard');
     this.route('calendar');
+    this.route('colleagues');
   });
 });
