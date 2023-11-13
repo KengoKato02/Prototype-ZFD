@@ -16,4 +16,5 @@ Router.map(function () {
     this.route('colleagues');
     this.route('holiday');
   });
+  this.route('login');
 });
