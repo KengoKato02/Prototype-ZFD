@@ -84,7 +84,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@embroider/webpack": "^3.2.0",
-    "ember-modal-dialog": "^4.1.2"
+    "@embroider/webpack": "^3.2.0"
   }
 }
