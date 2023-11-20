@@ -32,6 +32,7 @@
     "@ember/test-helpers": "^3.1.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.16",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.0",
@@ -53,11 +54,12 @@
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^7.0.0",
     "ember-resolver": "^10.1.1",
+    "ember-simple-auth": "^6.0.0",
     "ember-source": "~5.1.1",
     "ember-template-lint": "^5.11.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-welcome-page": "^7.0.2",
-    "eslint": "^8.43.0",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-ember": "^11.9.0",
     "eslint-plugin-n": "^16.0.1",
@@ -85,8 +87,11 @@
   },
   "dependencies": {
     "@embroider/webpack": "^3.2.0",
+<<<<<<< HEAD
     "cors": "^2.8.5",
     "ember-modal-dialog": "^4.1.2",
+=======
+>>>>>>> 1fb26c2cc152eca3e47c9e2d7a514137f8843b7a
     "lint": "^0.8.19"
   }
 }
