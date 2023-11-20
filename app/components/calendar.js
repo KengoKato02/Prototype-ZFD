@@ -1,9 +1,31 @@
-
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+import { inject as service } from '@ember/service';
+
+
 export default class DynamicCalendarComponent extends Component {
+
+  @service api;
+
+  @tracked holidayTypes = []; // Track holiday types
+
+  constructor() {
+    super(...arguments);
+    this.fetchHolidayTypes();
+  }
+
+  async fetchHolidayTypes() {
+    try {
+      const holidayTypes = await this.api.getHolidays();
+      this.holidayTypes = holidayTypes;
+    } catch (error) {
+      console.error('Error fetching holiday types:', error);
+    }
+  }
+
+
   @tracked events = [
     { title: 'Breakfast', date: '2022-01-12T06:00', colStart: 3, gridRow: 2, span: 1 },
 

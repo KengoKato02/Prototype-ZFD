@@ -42,8 +42,8 @@
           class="ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Add
           event</button>
 
-          
- 
+
+
 
       </div>
       <div class="relative ml-6 md:hidden">
@@ -57,6 +57,9 @@
           </svg>
         </button>
 
+
+
+       
 
         <div
           class="absolute right-0 z-10 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -136,12 +139,15 @@
           <div class="flex items-center justify-center py-3">
             <span>Fri <span class="items-center justify-center font-semibold text-gray-900">14</span></span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sat <span class="items-center justify-center font-semibold text-gray-900">15</span></span>
+          <div class="flex items-center justify-center py-3 ">
+            <span>Sat <span class="items-center justify-center font-semibold text-gray-900 ">15</span></span>
           </div>
           <div class="flex items-center justify-center py-3">
             <span>Sun <span class="items-center justify-center font-semibold text-gray-900">16</span></span>
           </div>
+
+
+
         </div>
       </div>
 
@@ -163,20 +169,21 @@
             <div></div>
             <div></div>
             <div></div>
-          
+
 
           </div>
 
 
           <div
-            class="col-start-1 col-end-2 row-start-1 hidden grid-cols-7 grid-rows-1 divide-x divide-gray-100 sm:grid sm:grid-cols-7">
+            class="col-start-1 col-end-2 row-start-1 hidden grid-cols-14 grid-rows-1 divide-x divide-gray-100 sm:grid sm:grid-cols-7">
             <div class="col-start-1 row-span-full"></div>
             <div class="col-start-2 row-span-full"></div>
             <div class="col-start-3 row-span-full"></div>
             <div class="col-start-4 row-span-full"></div>
             <div class="col-start-5 row-span-full"></div>
-            <div class="col-start-6 row-span-full"></div>
-            <div class="col-start-7 row-span-full"></div>
+            <div class="col-start-6 row-span-full "></div>
+            <div class="col-start-7 row-span-full "></div>
+
           </div>
 
 
@@ -194,7 +201,7 @@
               </a>
             </li>
             {{/each}}
-            
+
           </div>
 
           {{#if this.isAddEventModalOpen}}
@@ -244,4 +251,18 @@
       </div>
     </div>
   </div>
+
+
+ <div>
+  <h2>Holiday Types</h2>
+  <ul>
+    {{#each this.holidayTypes as |holidayType|}}
+      <li>{{holidayType.holiday_name}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+
+
+
 </div>
