@@ -4,6 +4,7 @@ const controller = require ("./controller")
 const router = Router();
 
 router.get("/", controller.getHolidays);
+
 router.get("/:id", controller.getHolidayById);
 
 router.post("/", controller.addHolidays);
