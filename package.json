@@ -87,6 +87,11 @@
   },
   "dependencies": {
     "@embroider/webpack": "^3.2.0",
+<<<<<<< HEAD
+    "cors": "^2.8.5",
+    "ember-modal-dialog": "^4.1.2",
+=======
+>>>>>>> 1fb26c2cc152eca3e47c9e2d7a514137f8843b7a
     "lint": "^0.8.19"
   }
 }
