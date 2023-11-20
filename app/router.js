@@ -12,10 +12,10 @@ Router.map(function () {
   this.route('authenticated', function () {
     this.route('sign-up');
     this.route('dashboard');
-    this.route('calendar');
     this.route('colleagues');
     this.route('holiday');
     this.route('profile');
+    this.route('calendar');
   });
   this.route('login');
 });
