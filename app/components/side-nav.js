@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 
 export default class SideNavComponent extends Component {
   @service router;
-
+  
   @tracked isOpen = false;
 
   @action

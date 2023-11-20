@@ -1,224 +1,80 @@
 <div class="space-y-10 divide-y divide-gray-900/10 bg-gray-800 h-screen">
 
-  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3 mr-20 w-fit">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3 mr-20">
     <div class="px-4 sm:px-0 ml-20">
       <h2 class="text-base font-semibold leading-7 text-white">Personal Information</h2>
-      <p class="mt-1 text-sm leading-6 text-gray-300 w-96">Use a permanent address where you can receive mail.</p>
+      <p class="mt-1 text-sm leading-6 text-gray-300">Use a permanent address where you can receive mail.</p>
     </div>
 
     <form class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
-    
-
       <div class="px-4 py-6 sm:p-8">
         <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          
           <div class="sm:col-span-3">
             <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
             <div class="mt-2">
-              <input 
-                type="text" 
-                name="first-name" 
-                id="first-name" 
-                value={{this.user.first_name}} 
-                {{on 'input' (action (mut this.user.first_name) value='target.value') }}
-                autocomplete="given-name" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-3">
             <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
             <div class="mt-2">
-              <input 
-                type="text" 
-                name="last-name" 
-                id="last-name" 
-                value={{this.user.last_name}}
-                {{on 'input' (action (mut this.user.last_name) value='target.value') }}
-                autocomplete="family-name" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+            <div class="mt-2">
+              <input id="email" name="email" type="email" autocomplete="email" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+            <div class="mt-2">
+              <select id="country" name="country" autocomplete="country-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>Mexico</option>
+              </select>
             </div>
           </div>
 
           <div class="col-span-full">
             <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
             <div class="mt-2">
-              <input 
-                type="text" 
-                name="street-address" 
-                id="street-address" 
-                value={{this.user.street_address}}
-                {{on 'input' (action (mut this.user.street_address) value='target.value') }}
-                autocomplete="street-address" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-2 sm:col-start-1">
             <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
             <div class="mt-2">
-              <input 
-                type="text" 
-                name="city" 
-                id="city" 
-                value={{this.user.city}}
-                {{on 'input' (action (mut this.user.city) value='target.value') }}
-                autocomplete="city" 
-                class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-2">
-            <label for="region" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+            <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
             <div class="mt-2">
-              <input 
-                type="number" 
-                name="zip" 
-                id="zip" 
-                value={{this.user.zip_code}}
-                {{on 'input' (action (mut this.user.zip_code) value='target.value')}}
-                autocomplete="zip-code" 
-                class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-2">
-            <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">CPR Number</label>
+            <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
             <div class="mt-2">
-              <input type="number" name="cpr-number" id="cpr-number" autocomplete="cpr-number" class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
-
-         <div class="sm:col-span-2">
-            <label for="department" class="block text-sm font-medium leading-6 text-gray-900">Department</label>
-            <div class="mt-2">
-              <select id="department" name="department" autocomplete="department-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                <option>IT</option>
-                <option>Management</option>
-                <option>Labour</option>
-                <option>CO</option>
-                <option>HR</option>
-                <option>Security</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="sm:col-span-4">
-            <label for="position" class="block text-sm font-medium leading-6 text-gray-900">Position</label>
-            <div class="mt-2">
-              <input 
-                type="text" 
-                name="position" 
-                id="position" 
-                value={{this.user.position}}
-                {{on 'input' (action (mut this.user.position) value='target.value')}}
-                autocomplete="position-name" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
         </div>
       </div>
-
       <div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
         <LinkTo @route="authenticated.calendar" type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</LinkTo>
-        <button 
-          type="button" 
-          {{on "click" (fn this.updateProfilePersonalInfo this.user)}}
-          class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
       </div>
-    </form>
-  </div>
-
-  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3 mr-20 w-fit">
-    <div class="px-4 sm:px-0 ml-20">
-      <h2 class="text-base font-semibold leading-7 text-white">Security Settings</h2>
-      <p class="mt-1 text-sm leading-6 text-gray-300 w-96">We recommend to change passwords every month for maxmium security.</p>
-    </div>
-
-    <form class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
-
-      <div class="px-4 py-6 sm:p-8">
-        <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
-          <div class="sm:col-span-2">
-            <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
-            <div class="mt-2">
-              <input 
-                type="number" 
-                name="phone-number" 
-                id="phone-number" 
-                value={{this.user.phone_number}}
-                {{on 'input' (action (mut this.user.phone_number) value='target.value')}}
-                autocomplete="phone-number" 
-                class="block w-full rounded-md bg-slate-50 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-          
-
-          <div class="sm:col-span-4">
-            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Current email address</label>
-            <div class="mt-2">
-              <input 
-                id="email" 
-                name="email" 
-                type="email" 
-                placeholder='oleg@gmail.com' 
-                value={{this.user.email}}
-                {{on 'input' (action (mut this.user.email) value='target.value')}}
-                autocomplete="email" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="sm:col-span-3">
-            <label for="current-password" class="block text-sm font-medium leading-6 text-gray-900">Current password</label>
-            <div class="mt-2">
-              <input 
-                type="text" 
-                name="current-password" 
-                id="current-password" 
-                value={{this.user.passowrd}}
-                {{on 'input' (action (mut this.user.password) value='target.value')}}
-                autocomplete="current-password" 
-                class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="sm:col-span-3">
-            <label for="confirm-current-password" class="block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
-            <div class="mt-2">
-              <input type="text" name="confirm-current-password" id="confirm-current-password" autocomplete="confirm-current-password" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="sm:col-span-3">
-            <label for="new-password" class="block text-sm font-medium leading-6 text-gray-900">New password</label>
-            <div class="mt-2">
-              <input type="text" name="new-password" id="new-password" autocomplete="new-password" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="sm:col-span-3">
-            <label for="confirm-new-password" class="block text-sm font-medium leading-6 text-gray-900">Confirm new password</label>
-            <div class="mt-2">
-              <input type="text" name="confirm-new-password" id="confirm-new-password" autocomplete="confirm-new-password" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
-        <LinkTo @route="authenticated.calendar" type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</LinkTo>
-        <button 
-        type="submit" 
-        {{!-- {{on "submit" (fn this.updateProfile this.user)}} --}}
-        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
-      </div>
-
     </form>
   </div>
 
 </div>
-{{log this.user}}
