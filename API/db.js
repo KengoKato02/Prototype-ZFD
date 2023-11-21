@@ -8,7 +8,7 @@ const pool = new Pool({
   port: 5432,
   ssl: {
     require: true,
-    rejectUnauthorized: true, // Set to true in a production environment with a valid SSL certificate
+    rejectUnauthorized: true, 
   },
 });
 
