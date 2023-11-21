@@ -1,9 +1,11 @@
-import Route from '@ember/routing/route';
-``;
+import Route from '@ember/routing/route';``;
 import { tracked } from 'tracked-built-ins';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 
 export default class LoginRoute extends Route {
+  @service session;
+  
   @tracked email = '';
   @tracked password = '';
 
@@ -21,9 +23,22 @@ export default class LoginRoute extends Route {
     controller.set('login', this.login.bind(this));
   }
 
+  beforeModel() {
+    this.session.prohibAuthentication('authenticated.calendar');
+  }
+
   @action
-  login(email, password) {
-    console.log(email);
-    console.log(password);
+  async login(email, password) {
+    try {
+      await this.session.authenticate('authenticator:token', {
+        email,
+        password,
+      });
+
+      this.router.transitionTo('authenticated.calendar');
+    } catch (error) {
+      // Handle other errors
+      console.error(error);
+    }
   }
 }
