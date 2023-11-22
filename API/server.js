@@ -16,9 +16,7 @@ app.get('/', (req, res) => {
   res.send('wasuup');
 });
 
-
 app.use('/auth', authenticationRoutes); //login
-
 
 app.use('/api/v1/holidays', holidayRoutes);
 

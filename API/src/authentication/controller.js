@@ -2,28 +2,26 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { getUserByEmail, createUser } = require('./queries');
 
-
-
 const register = async (req, res) => {
-    const { email, password } = req.body;
-  
-    // Check if the user already exists
-    const existingUser = await getUserByEmail(email);
-  
-    console.log('Existing User:', existingUser); 
+  const { email, password } = req.body;
 
-    if (existingUser) {
-      return res.status(409).json({ error: 'User already exists' });
-    }
-  
-    // Create a new user with hashed password
-    const newUser = await createUser(email, password);
-  
-    // Generate a JWT for the new user
-    const token = jwt.sign({ userId: newUser.id }, process.env.JWT_SECRET);
-  
-    res.json({ message: 'User registered successfully', user: newUser, token });
-  };
+  // Check if the user already exists
+  const existingUser = await getUserByEmail(email);
+
+  console.log('Existing User:', existingUser);
+
+  if (existingUser) {
+    return res.status(409).json({ error: 'User already exists' });
+  }
+
+  // Create a new user with hashed password
+  const newUser = await createUser(email, password);
+
+  // Generate a JWT for the new user
+  const token = jwt.sign({ userId: newUser.id }, process.env.JWT_SECRET);
+
+  res.json({ message: 'User registered successfully', user: newUser, token });
+};
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -50,5 +48,5 @@ const login = async (req, res) => {
 
 module.exports = {
   login,
-  register
+  register,
 };

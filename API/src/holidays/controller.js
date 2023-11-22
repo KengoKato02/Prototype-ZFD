@@ -3,7 +3,6 @@ const pool = require('../../db');
 const queries = require('./queries');
 const res = require('express/lib/response');
 
-
 const getHolidays = (req, res) => {
   pool.query(queries.getHolidays, (error, results) => {
     if (error) throw error;

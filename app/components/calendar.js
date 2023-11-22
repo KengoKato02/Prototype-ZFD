@@ -3,10 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class CalendarComponent extends Component {
-  @tracked isOpen = false;
+  @tracked isModalOpen = false;
 
   @action
-  toggleMonthDropDown() {
-    this.isOpen = !this.isOpen;
+  toggleBookHoliday() {
+    console.log('called')
+    this.isModalOpen = !this.isModalOpen;
   }
 }
