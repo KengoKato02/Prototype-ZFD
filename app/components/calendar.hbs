@@ -14,11 +14,11 @@
       </div>
 
       {{#if this.isModalOpen}}
-        {{#modal-dialog translucentOverlay=true}}
+        <ModalDialog @translucentOverlay={{true}}>
           <BookHolidayModal
             @toggleBookHoliday={{this.toggleBookHoliday}}
           />  
-        {{/modal-dialog}}
+        </ModalDialog>
       {{/if}}
 
       <div class="relative ml-6 md:hidden">

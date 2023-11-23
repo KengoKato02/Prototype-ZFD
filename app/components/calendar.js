@@ -7,7 +7,7 @@ export default class CalendarComponent extends Component {
 
   @action
   toggleBookHoliday() {
-    console.log('called')
+    console.log('called');
     this.isModalOpen = !this.isModalOpen;
   }
 }
