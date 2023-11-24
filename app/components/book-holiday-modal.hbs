@@ -27,21 +27,36 @@
        <div class="pl-4">
          <label for="start-date" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Holiday Start Date</label>
          <div class="">
-           <input type="date" form="addForm" id="start-date" 
-             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+           <input 
+            type="date" 
+            form="addForm" 
+            id="start-date" 
+            value={{this.holidays.start_date}}
+            {{on 'input' (action (mut this.holidays.start_date) value='target.value')}}
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
          </div>
        
          <label for="contract-end" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Holiday End Date</label>
          <div class="">
-           <input type="date" form="addForm" id="contract-end" 
-             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+           <input 
+              type="date" 
+              form="addForm" 
+              id="contract-end" 
+              value={{this.holidays.end_date}}
+              {{on 'input' (action (mut this.holidays.end_date) value='target.value')}}
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
          </div>
 
          <label for="person-salary" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Description</label>
          <div class="">
-           <input type="number" form="addForm" id="description" 
-             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-             placeholder="Enter here why you need this holiday if applicable">
+           <input 
+              type="number" 
+              form="addForm" 
+              id="description" 
+              value={{this.holidays.description}}
+              {{on 'input' (action (mut this.holidays.description) value='target.value')}}
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="Enter here why you need this holiday if applicable">
          </div> 
        
            
@@ -71,8 +86,8 @@
          </div>
         </div>
 
-        <div class="mt-10 sm:mt-4 sm:flex sm:flex-row-reverse">
-          <button type="button" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto">Request Holiday</button>
+        <div class="pt-10 sm:mt-4 sm:flex sm:flex-row-reverse">
+          <button type="button" {{on 'click' this.bookHoliday}} class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto">Request Holiday</button>
           <button type="button" {{on 'click' @toggleBookHoliday}} class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
         </div>
 

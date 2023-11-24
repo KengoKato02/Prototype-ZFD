@@ -1,5 +1,4 @@
-@import url("tailwindcss/base");
-@import url("tailwindcss/components");
-@import url("tailwindcss/utilities");
-@import url("tailwindcss/forms");
-@import url("pages/authenticated");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "pages/authenticated";
