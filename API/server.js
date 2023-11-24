@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authenticationRoutes); //login
 
 
-app.use('/api/v1/holidays', holidayRoutes);
-app.use('/api/v1/team', teamRoutes);
+app.use('/holidays', holidayRoutes);
+app.use('/teams', teamRoutes);
 
 app.listen(port, () => console.log(`app listening on port ${port}`));

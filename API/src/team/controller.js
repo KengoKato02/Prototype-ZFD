@@ -10,8 +10,16 @@ const getTeamMembers = (req, res) => {
       res.status(200).json(results.rows);
     });
   };
+
+  const getAllMembers = (req, res) => {
+    pool.query(queries.getAllMembers, (error, results) => {
+      if (error) throw error;
+      res.status(200).json(results.rows);
+    });
+  };
   
 
 module.exports={
-    getTeamMembers
+    getTeamMembers,
+    getAllMembers
 };
