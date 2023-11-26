@@ -70,32 +70,6 @@
   <div class="isolate flex flex-auto flex-col overflow-auto-x bg-white">
     <div style="width: 100%" class="flex max-w-full flex-none flex-col sm:max-w-none md:max-w-full">
 
-      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8 overflow-x-auto">
-        <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
-
-          <div class="col-end-1 w-64 flex items-center">
-            <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
-          </div>
-          
-          {{#each this.daysOfWeek as |dayOfWeek|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{dayOfWeek}}</span>
-            </div>
-          {{/each}}
-
-          {{#each this.weeksInMonth as |week|}}
-            
-              {{#each week as |day|}}
-                <div class="flex items-center justify-center py-3">
-                  <span>{{day}}</span>
-                </div>
-              {{/each}}
-            
-          {{/each}}
-
-        </div>
-      </div> --}}
-
       <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
 
         {{#if (eq this.currentWeek 1)}}
@@ -174,52 +148,6 @@
         {{/if}}
 
       </div>
-
-      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
-        {{#each this.calcWeeks as |week|}}
-        
-        <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
-          <div class="col-end-1 w-64 flex items-center">
-            <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">{{week}}</span></span>
-          </div>
-        </div>
-        {{/each}}
-      </div> --}}
-
-      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
-  
-        {{#each weeks as |week weekIndex|}}
-            {{#each week as |day dayIndex|}}
-              {{#if (eq this.currentWeek)}}
-                <div class="day">
-                  {{day}}
-                </div>
-              {{/if}}
-            {{/each}}
-        {{/each}}
-
-      </div> --}}
-
-
-      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
-        {{#each this.calcWeeks as |weeks|}}
-          {{log weeks}}
-          {{#if (eq weeks 1)}}
-            <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
-              <div class="col-end-1 w-64 flex items-center">
-                <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
-              </div>
-              {{#each weeks as |day|}}
-                {{log day}}
-              {{/each}}
-            </div>
-          {{/if}}
-        {{/each}}
-      </div> --}}
-      
 
       <div class="flex flex-auto h-fit">
         <div class="sticky left-0 z-10 w-64 flex-none bg-white ring-1 ring-gray-100"></div>
