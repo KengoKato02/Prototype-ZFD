@@ -104,27 +104,11 @@
           <div class="col-end-1 w-64 flex items-center">
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">1</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Tue <span class="items-center justify-center font-semibold text-gray-900">2</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span class="flex items-baseline">Wed <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">3</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Thu <span class="items-center justify-center font-semibold text-gray-900">4</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Fri <span class="items-center justify-center font-semibold text-gray-900">5</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sat <span class="items-center justify-center font-semibold text-gray-900">6</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sun <span class="items-center justify-center font-semibold text-gray-900">7</span></span>
-          </div>
+          {{#each this.firstWeek as |day|}}
+            <div class="flex items-center justify-center py-3">
+              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+            </div>
+          {{/each}}
         </div>
 
         {{/if}}
@@ -135,27 +119,11 @@
           <div class="col-end-1 w-64 flex items-center">
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">8</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Tue <span class="items-center justify-center font-semibold text-gray-900">9</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span class="flex items-baseline">Wed <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">10</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Thu <span class="items-center justify-center font-semibold text-gray-900">11</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Fri <span class="items-center justify-center font-semibold text-gray-900">12</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sat <span class="items-center justify-center font-semibold text-gray-900">13</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sun <span class="items-center justify-center font-semibold text-gray-900">14</span></span>
-          </div>
+          {{#each this.secondWeek as |day|}}
+            <div class="flex items-center justify-center py-3">
+              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+            </div>
+          {{/each}}
         </div>
 
         {{/if}}
@@ -166,27 +134,11 @@
           <div class="col-end-1 w-64 flex items-center">
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">15</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Tue <span class="items-center justify-center font-semibold text-gray-900">16</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span class="flex items-baseline">Wed <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">17</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Thu <span class="items-center justify-center font-semibold text-gray-900">18</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Fri <span class="items-center justify-center font-semibold text-gray-900">19</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sat <span class="items-center justify-center font-semibold text-gray-900">20</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sun <span class="items-center justify-center font-semibold text-gray-900">21</span></span>
-          </div>
+          {{#each this.thirdWeek as |day|}}
+            <div class="flex items-center justify-center py-3">
+              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+            </div>
+          {{/each}}
         </div>
 
         {{/if}}
@@ -197,27 +149,11 @@
           <div class="col-end-1 w-64 flex items-center">
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">22</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Tue <span class="items-center justify-center font-semibold text-gray-900">23</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span class="flex items-baseline">Wed <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">24</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Thu <span class="items-center justify-center font-semibold text-gray-900">25</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Fri <span class="items-center justify-center font-semibold text-gray-900">26</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sat <span class="items-center justify-center font-semibold text-gray-900">27</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Sun <span class="items-center justify-center font-semibold text-gray-900">28</span></span>
-          </div>
+          {{#each this.fourthWeek as |day|}}
+            <div class="flex items-center justify-center py-3">
+              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+            </div>
+          {{/each}}
         </div>
 
         {{/if}}
@@ -228,22 +164,62 @@
           <div class="col-end-1 w-64 flex items-center">
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">29</span></span>
-          </div>
-          <div class="flex items-center justify-center py-3">
-            <span>Tue <span class="items-center justify-center font-semibold text-gray-900">30</span></span>
-          </div>
-          {{#if (eq this.endOfMonth 31)}}
-          <div class="flex items-center justify-center py-3">
-            <span class="flex items-baseline">Wed <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">31</span></span>
-          </div>
-          {{/if}}
+          {{#each this.fifthWeek as |day|}}
+            <div class="flex items-center justify-center py-3">
+              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+            </div>
+          {{/each}}
         </div>
 
         {{/if}}
 
       </div>
+
+      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
+        {{#each this.calcWeeks as |week|}}
+        
+        <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
+          <div class="col-end-1 w-64 flex items-center">
+            <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
+          </div>
+          <div class="flex items-center justify-center py-3">
+            <span>Mon <span class="items-center justify-center font-semibold text-gray-900">{{week}}</span></span>
+          </div>
+        </div>
+        {{/each}}
+      </div> --}}
+
+      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
+  
+        {{#each weeks as |week weekIndex|}}
+            {{#each week as |day dayIndex|}}
+              {{#if (eq this.currentWeek)}}
+                <div class="day">
+                  {{day}}
+                </div>
+              {{/if}}
+            {{/each}}
+        {{/each}}
+
+      </div> --}}
+
+
+      {{!-- <div class="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
+        {{#each this.calcWeeks as |weeks|}}
+          {{log weeks}}
+          {{#if (eq weeks 1)}}
+            <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
+              <div class="col-end-1 w-64 flex items-center">
+                <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
+              </div>
+              {{#each weeks as |day|}}
+                {{log day}}
+              {{/each}}
+            </div>
+          {{/if}}
+        {{/each}}
+      </div> --}}
+      
 
       <div class="flex flex-auto h-fit">
         <div class="sticky left-0 z-10 w-64 flex-none bg-white ring-1 ring-gray-100"></div>
@@ -309,8 +285,8 @@
           </div>
 
           {{!-- Events --}}
-          <ol class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-8" style="grid-template-rows: 1.75rem repeat(288, minmax(0, 1fr)) auto">
-            <li class="relative mt-px flex sm:col-start-3" style="grid-row: 70 / span 32">
+          <ol class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-8" style="grid-template-rows: 3rem repeat(288, minmax(0, 1fr)) auto">
+            <li class="relative mt-px flex sm:col-start-3" style="grid-row: 60 / span 32">
               <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-blue-50 p-2 text-xs leading-5 hover:bg-blue-100">
                 <p class="order-1 font-semibold text-blue-700">Lieue Day</p>
                 <p class="text-blue-500 group-hover:text-blue-700"><time datetime="2022-01-12T06:00">6:00 AM</time></p>
@@ -322,10 +298,10 @@
                 <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">7:30 AM</time></p>
               </a>
             </li>
-            <li class="relative mt-px hidden sm:col-start-6 sm:flex" style="grid-row: 30 / span 32">
+            <li class="relative mt-px hidden sm:col-start-6 sm:flex" style="grid-row: 1 / span 32">
               <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-gray-100 p-2 text-xs leading-5 hover:bg-gray-200">
-                <p class="order-1 font-semibold text-gray-700">Christmas Holiday</p>
-                <p class="text-gray-500 group-hover:text-gray-700"><time datetime="2022-01-15T10:00">10:00 AM</time></p>
+                <p class="order-1 font-semibold text-gray-700">Christmas</p>
+                <p class="text-gray-500 group-hover:text-gray-700"><time datetime="2023-11-27T10:00">27th-27th</time></p>
               </a>
             </li>
           </ol>
@@ -343,4 +319,4 @@
   
 </div>
 
-{{log this.currentWeek}}
+{{log this.firstWeek}}
