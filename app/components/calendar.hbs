@@ -79,9 +79,15 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.firstWeek as |day|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
-            </div>
+            {{#if (eq day.dayNumber this.currentDay)}}
+              <div class="flex items-center justify-center py-3">
+                <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
+              </div>
+            {{else}}
+              <div class="flex items-center justify-center py-3">
+                <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
 
@@ -94,9 +100,15 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.secondWeek as |day|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
-            </div>
+            {{#if (eq day.dayNumber this.currentDay)}}
+              <div class="flex items-center justify-center py-3">
+                <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
+              </div>
+            {{else}}
+              <div class="flex items-center justify-center py-3">
+                <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
 
@@ -109,9 +121,15 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.thirdWeek as |day|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
-            </div>
+            {{#if (eq day.dayNumber this.currentDay)}}
+              <div class="flex items-center justify-center py-3">
+                <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
+              </div>
+            {{else}}
+              <div class="flex items-center justify-center py-3">
+                <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
 
@@ -124,9 +142,15 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.fourthWeek as |day|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
-            </div>
+            {{#if (eq day.dayNumber this.currentDay)}}
+              <div class="flex items-center justify-center py-3">
+                <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
+              </div>
+            {{else}}
+              <div class="flex items-center justify-center py-3">
+                <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
 
@@ -139,9 +163,15 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.fifthWeek as |day|}}
-            <div class="flex items-center justify-center py-3">
-              <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
-            </div>
+            {{#if (eq day.dayNumber this.currentDay)}}
+              <div class="flex items-center justify-center py-3">
+                <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
+              </div>
+            {{else}}
+              <div class="flex items-center justify-center py-3">
+                <span>{{day.dayLabel}} <span class="items-center justify-center font-semibold text-gray-900">{{day.dayNumber}}</span></span>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
 
@@ -247,4 +277,3 @@
   
 </div>
 
-{{log this.firstWeek}}

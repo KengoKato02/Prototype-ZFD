@@ -131,7 +131,7 @@ export default class CalendarComponent extends Component {
   get fifthWeek(){
     const calcWeeksResult = this.calcWeeks;
     if (calcWeeksResult.length > 0) {
-      const fifthWeek = calcWeeksResult[0].map((day, index) => {
+      const fifthWeek = calcWeeksResult[4].map((day, index) => {
         const dayLabel = this.dayLabels[index];
         return { dayNumber: day, dayLabel };
       });
