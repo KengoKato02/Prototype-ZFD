@@ -32,6 +32,50 @@ export default class CalendarComponent extends Component {
   
 
   @tracked currentWeek = getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.currentDay));
+  
+
+  @tracked eventTest = [
+    {
+      start_date: new Date(2023, 11, 27),
+      end_date: new Date(2023, 11, 27),
+      description: 'Saugat needs to go to the dentist',
+      team: 'Aarhus',
+      holiday_type: 'Emergency Leave',
+
+    },
+    {
+      start_date: new Date(2023, 11, 24),
+      end_date: new Date(2023, 11, 25),
+      description: 'Oleg is on holiday',
+      team: 'Aarhus',
+      holiday_type: 'Vacation',
+    },
+  ];
+
+  @tracked shownEvents = [];
+
+  constructor(){
+    super(...arguments);
+    this.events(this.eventTest);
+  }  
+  
+  events(eventInput){
+    eventInput.forEach((input) => {
+      console.log(input.start_date.getMonth())
+      console.log(this.currentMonth)
+      if(input.start_date.getMonth() >= this.currentMonth && input.end_date.getMonth() <= this.endOfMonthDate.getMonth()){ //check if the event is for this month
+        console.log('passed month check')
+        if(getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.input.start_date)) === this.currentWeek){
+          console.log(getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.input.start_date)));
+          this.shownEvents.pushObject(input);
+        }
+      }
+    });
+  }
+
+  getNum(inputDate){
+    return inputDate.getDate();
+  }
 
   
   get calcWeeks() {
