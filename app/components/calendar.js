@@ -44,8 +44,8 @@ export default class CalendarComponent extends Component {
 
     },
     {
-      start_date: new Date(2023, 11, 24),
-      end_date: new Date(2023, 11, 25),
+      start_date: new Date(2023, 11, 22),
+      end_date: new Date(2023, 11, 23),
       description: 'Oleg is on holiday',
       team: 'Aarhus',
       holiday_type: 'Vacation',
@@ -53,31 +53,36 @@ export default class CalendarComponent extends Component {
   ];
 
   @tracked shownEvents = [];
+  @tracked calcShownEvents = [];
 
   constructor(){
     super(...arguments);
     this.events(this.eventTest);
   }  
-  
-  events(eventInput){
+
+  events(eventInput) {
     eventInput.forEach((input) => {
-      console.log(input.start_date.getMonth())
-      console.log(this.currentMonth)
-      if(input.start_date.getMonth() >= this.currentMonth && input.end_date.getMonth() <= this.endOfMonthDate.getMonth()){ //check if the event is for this month
-        console.log('passed month check')
-        if(getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.input.start_date)) === this.currentWeek){
-          console.log(getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.input.start_date)));
-          this.shownEvents.pushObject(input);
+      const eventStartDate = input.start_date;
+      const eventEndDate = input.end_date;
+  
+      let currentDate = new Date(eventStartDate);
+  
+      while (currentDate <= eventEndDate) {
+        if (currentDate.getMonth() >= this.currentMonth) {
+          const weekOfMonth = getWeekOfMonth(currentDate);
+          if (weekOfMonth === this.currentWeek) {    
+
+            this.shownEvents.push(input);
+            break; 
+          }
         }
+
+        // Move to the next day
+        currentDate.setDate(currentDate.getDate() + 1);
       }
     });
   }
 
-  getNum(inputDate){
-    return inputDate.getDate();
-  }
-
-  
   get calcWeeks() {
     const startDate = new Date(this.startOfMonthDate);
     const startDay = startDate.getDay();
@@ -100,10 +105,7 @@ export default class CalendarComponent extends Component {
   
     let remainingDays = totalDaysInMonth - (7 - startDay);
     let week = 1;
-    let nextMonth = this.currentMonth + 1;
-    let nextYear = this.currentYear;
-    let totalDaysInNextMonth = getDaysInMonth(new Date(nextYear, nextMonth - 1, 1));
-  
+    
     // Continue filling weeks with the current month
     while (remainingDays > 0) {
       currentWeek = [];

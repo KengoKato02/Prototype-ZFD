@@ -6,21 +6,27 @@ export default class EmployeesService extends Service {
   @tracked employees = [
     {
       first_name: 'Oleg',
-      last_name: 'Marcnuks',
+      last_name: '',
       team: 'Dolphins',
       role: 'Architect',
     },
     {
       first_name: 'Saugat',
-      last_name: 'Maharjan',
+      last_name: '',
       team: 'Dolphins',
       role: 'Manager',
     },
     {
       first_name: 'Ken',
-      last_name: 'Kato',
+      last_name: '',
       team: 'Dolphins',
       role: 'Developer',
+    },
+    {
+      first_name: 'Saugat',
+      last_name: '',
+      team: 'Dolphins',
+      role: 'Manager',
     },
   ];
 
