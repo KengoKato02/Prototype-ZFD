@@ -10,6 +10,15 @@ export default class LoginRoute extends Route {
   @tracked email = '';
   @tracked password = '';
 
+  beforeModel() {
+    this.session.setup();
+    this.session.prohibitAuthentication('authenticated.calendar');
+  }
+
+  async model() {
+    return {};
+  }
+
   setupController(controller, model, transition) {
     super.setupController(controller, model, transition);
     controller.set('email', '');
@@ -26,12 +35,13 @@ export default class LoginRoute extends Route {
     controller.set('login', this.login.bind(this));
   }
 
-  // beforeModel() {
-  //   this.session.prohibAuthentication('authenticated.calendar');
-  // }
-
   @action
   async login(email, password) {
-    console.log(email, password);
+    try {
+      await this.session.authenticate('authenticator:token', email, password);
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(this.session);
   }
 }

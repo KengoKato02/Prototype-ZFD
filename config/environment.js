@@ -46,18 +46,21 @@ module.exports = function (environment) {
 
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:token', // Use the token authorizer
-    routeAfterInvalidation: 'login',
-    routeAfterAuthentication: 'authenticated.operating-targets',
+    // routeAfterInvalidation: 'login',
+    routeAfterAuthentication: 'authenticated.calendar',
   };
   ENV['ember-simple-auth-token'] = {
     refreshAccessTokens: true,
     refreshLeeway: 300,
-    tokenPropertyName: 'token',
-    authorizationHeaderName: 'Authorization',
-    authorizationPrefix: 'Bearer ',
-    serverTokenRefreshEndpoint: 'http://localhost:3000/refresh-token',
-    serverTokenEndpoint: 'http://localhost:3000/api/v1/login',
-    serverTokenRefreshModel: 'refresh-token',
+    timeFactor: 1000,
+    // tokenPropertyName: 'token',
+    // authorizationHeaderName: 'Authorization',
+    // authorizationPrefix: 'Bearer ',
+    // serverTokenRefreshEndpoint: '/api/token-auth/',
+    // serverTokenEndpoint: '/api/token-refresh/',
+    serverTokenRefreshEndpoint: 'http://localhost:3000/api/login',
+    serverTokenEndpoint: 'http://localhost:3000/api/login',
+    // serverTokenRefreshModel: 'refresh-token',
   };
 
   return ENV;

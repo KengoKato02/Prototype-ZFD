@@ -33,7 +33,7 @@ export default class EmployeesService extends Service {
   @action
   addEmployee(input) {
     this.employees.push(input);
-    this.employees= this.employees;
+    this.employees = this.employees;
     console.log(this.employees);
   }
 }

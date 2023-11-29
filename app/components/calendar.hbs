@@ -62,7 +62,8 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.firstWeek as |day|}}
-            {{log day.dayNumber}}
+            
+            {{log day.month}}
             {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
@@ -148,7 +149,7 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.fifthWeek as |day|}}
-          {{log day.dayNumber}}
+          
           
             {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
@@ -239,7 +240,16 @@
               </a>
             </li> --}}
 
-            <li class="relative mt-px hidden col-start-3 col-end-4 flex" style="grid-row: 1 / span 32">
+            {{#each this.shownEvents as |event|}}
+              <li class="relative mt-px hidden col-start-2 col-span-{{event.dayDiff}} flex" style="grid-row: 1 / span 32">
+                <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-pink-50 p-2 text-xs leading-5 hover:bg-pink-100">
+                  <p class="order-1 font-semibold text-pink-700">{{event.holiday_type}}</p>
+                  <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">{{event.start_date}} - {{event.end_date}}</time></p>
+                </a>
+              </li>
+            {{/each}}
+
+            {{!-- <li class="relative mt-px hidden col-start-3 col-end-4 flex" style="grid-row: 1 / span 32">
               <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-pink-50 p-2 text-xs leading-5 hover:bg-pink-100">
                 <p class="order-1 font-semibold text-pink-700">Lieu Day</p>
                 <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">28th-28th</time></p>
@@ -251,7 +261,7 @@
                 <p class="order-1 font-semibold text-gray-700">Christmas</p>
                 <p class="text-gray-500 group-hover:text-gray-700"><time datetime="2023-11-27T10:00">27th-27th</time></p>
               </a>
-            </li>
+            </li> --}}
 
             <li class="relative mt-px hidden sm:col-start-7 sm:flex" style="grid-row: 30 / span 62">
               <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-green-100 p-2 text-xs leading-5 hover:bg-gray-200">
@@ -289,4 +299,4 @@
   
 </div>
 
-{{!-- {{log this.fifthWeek}} --}}
+{{log this.fifthWeek}}
