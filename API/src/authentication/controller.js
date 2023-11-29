@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const { getUserByEmail, createUser } = require('./queries');
 
 
-
 const register = async (req, res) => {
     const { email, password } = req.body;
   
