@@ -1,7 +1,7 @@
 <div class="flex h-full flex-col">
   <header class="flex flex-none items-center justify-between border-b border-gray-200 px-6 py-4">
     <h1 class="text-base font-semibold leading-6 text-gray-900">
-      <time datetime="2022-01">{{this.currentMonthName}} {{this.currentYear}}</time>
+      <time datetime="2022-01">{{this.activeMonthName}} {{this.currentYear}}</time>
     </h1>
     <div class="flex items-center">
       
@@ -62,7 +62,8 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.firstWeek as |day|}}
-            {{#if (eq day.dayNumber this.currentDay)}}
+            {{log day.dayNumber}}
+            {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
               </div>
@@ -83,7 +84,7 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.secondWeek as |day|}}
-            {{#if (eq day.dayNumber this.currentDay)}}
+            {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
               </div>
@@ -104,7 +105,7 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.thirdWeek as |day|}}
-            {{#if (eq day.dayNumber this.currentDay)}}
+            {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
               </div>
@@ -125,7 +126,8 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.fourthWeek as |day|}}
-            {{#if (eq day.dayNumber this.currentDay)}}
+            
+            {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
               </div>
@@ -146,7 +148,9 @@
             <span class="flex items-center justfy-center pl-8 text-gray-900 font-semibold">Employees</span>
           </div>
           {{#each this.fifthWeek as |day|}}
-            {{#if (eq day.dayNumber this.currentDay)}}
+          {{log day.dayNumber}}
+          
+            {{#if (and (eq day.dayNumber this.currentDay) (eq day.month this.currentMonth))}}
               <div class="flex items-center justify-center py-3">
                 <span class="flex items-baseline">{{day.dayLabel}} <span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">{{day.dayNumber}}</span></span>
               </div>
@@ -285,4 +289,4 @@
   
 </div>
 
-{{log this.calcWeeks}}
+{{!-- {{log this.fifthWeek}} --}}

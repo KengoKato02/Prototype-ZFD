@@ -13,26 +13,28 @@ export default class CalendarComponent extends Component {
   @tracked isSidePanelOpen = false;
 
   @tracked currentYear = new Date().getFullYear();
-  @tracked currentMonth = new Date().getMonth() + 1;
-  @tracked currentMonthName = format(
-    new Date(2023, this.currentMonth - 1, 1),
+  @tracked activeMonth = new Date().getMonth() + 1;
+  @tracked activeMonthName = format(
+    new Date(2023, this.activeMonth - 1, 1),
     'MMMM'
   );
 
+  @tracked currentMonth = new Date().getMonth() + 1;
+
   @tracked currentDay = new Date().getDate();
   @tracked currentDayName = format(
-    new Date(2023, this.currentMonth - 1, this.currentDay),
+    new Date(2023, this.activeMonth - 1, this.currentDay),
     'EEEE'
   );
 
-  @tracked endOfMonthDate = endOfMonth(new Date(this.currentYear, this.currentMonth - 1, 1));
-  @tracked startOfMonthDate = startOfMonth(new Date(this.currentYear, this.currentMonth - 1, 1));
+  @tracked endOfMonthDate = endOfMonth(new Date(this.currentYear, this.activeMonth - 1, 1));
+  @tracked startOfMonthDate = startOfMonth(new Date(this.currentYear, this.activeMonth - 1, 1));
 
   @tracked dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
   
 
-  @tracked currentWeekYear = getWeek(new Date(this.currentYear, this.currentMonth - 1, this.currentDay));
-  @tracked currentWeek = getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.currentDay));
+  @tracked currentWeekYear = getWeek(new Date(this.currentYear, this.activeMonth - 1, this.currentDay));
+  @tracked currentWeek = getWeekOfMonth(new Date(this.currentYear, this.activeMonth - 1, this.currentDay));
   
 
   @tracked eventTest = [
@@ -69,7 +71,7 @@ export default class CalendarComponent extends Component {
       let currentDate = new Date(eventStartDate);
   
       while (currentDate <= eventEndDate) {  //Use the date-fns library compare function
-        if (currentDate.getMonth() >= this.currentMonth) {
+        if (currentDate.getMonth() >= this.activeMonth) {
           const weekOfMonth = getWeekOfMonth(currentDate);
           if (weekOfMonth === this.currentWeek) {    
 
@@ -87,26 +89,28 @@ export default class CalendarComponent extends Component {
   get calcWeeks() {
     const startDate = new Date(this.startOfMonthDate);
     const startDay = startDate.getDay();
-    const daysInPreviousMonth = getDaysInMonth(new Date(this.currentYear, this.currentMonth - 2, 1));
+    const daysInPreviousMonth = getDaysInMonth(new Date(this.currentYear, this.activeMonth - 2, 1));
     const weeks = [];
   
     let currentWeek = [];
   
     // Fill the first week with the days from the previous month
-    for (let i = 0; i < startDay; i++) {
-      currentWeek.push(daysInPreviousMonth - (startDay - i) + 1);
+    for (let i = startDay - 1; i >= 0; i--) {
+      currentWeek.push(daysInPreviousMonth - i);
     }
   
     // Fill the remaining days of the first week with the current month
-    const totalDaysInMonth = getDaysInMonth(new Date(this.currentYear, this.currentMonth - 1, 1));
+    const totalDaysInMonth = getDaysInMonth(new Date(this.currentYear, this.activeMonth - 1, 1));
+  
     for (let i = 0; i < 7 - startDay; i++) {
       currentWeek.push(i + 1);
     }
+  
     weeks.push(currentWeek);
   
     let remainingDays = totalDaysInMonth - (7 - startDay);
     let week = 1;
-    
+  
     // Continue filling weeks with the current month
     while (remainingDays > 0) {
       currentWeek = [];
@@ -126,25 +130,29 @@ export default class CalendarComponent extends Component {
     return weeks;
   }
   
+  
   get firstWeek() {
     const calcWeeksResult = this.calcWeeks;
     if (calcWeeksResult.length > 0) {
       const firstWeek = calcWeeksResult[0].map((day, index) => {
         const dayLabel = this.dayLabels[index];
-        return { dayNumber: day, dayLabel };
+        const tempDate = new Date(this.currentYear, this.activeMonth - 1, day);
+        const month = tempDate.getMonth()+1;
+        return { dayNumber: day, dayLabel, month };
       });
       return firstWeek;
     } else {
       return [];
     }
   }
-  
   get secondWeek(){
     const calcWeeksResult = this.calcWeeks;
     if (calcWeeksResult.length > 0) {
       const secondWeek = calcWeeksResult[1].map((day, index) => {
         const dayLabel = this.dayLabels[index];
-        return { dayNumber: day, dayLabel };
+        const tempDate = new Date(this.currentYear, this.activeMonth - 1, day);
+        const month = tempDate.getMonth()+1;
+        return { dayNumber: day, dayLabel, month };
       });
       return secondWeek;
     } else {
@@ -156,7 +164,9 @@ export default class CalendarComponent extends Component {
     if (calcWeeksResult.length > 0) {
       const thirdWeek = calcWeeksResult[2].map((day, index) => {
         const dayLabel = this.dayLabels[index];
-        return { dayNumber: day, dayLabel };
+        const tempDate = new Date(this.currentYear, this.activeMonth - 1, day);
+        const month = tempDate.getMonth()+1;
+        return { dayNumber: day, dayLabel, month };
       });
       return thirdWeek;
     } else {
@@ -168,7 +178,9 @@ export default class CalendarComponent extends Component {
     if (calcWeeksResult.length > 0) {
       const fourthWeek = calcWeeksResult[3].map((day, index) => {
         const dayLabel = this.dayLabels[index];
-        return { dayNumber: day, dayLabel };
+        const tempDate = new Date(this.currentYear, this.activeMonth - 1, day);
+        const month = tempDate.getMonth()+1;
+        return { dayNumber: day, dayLabel, month };
       });
       return fourthWeek;
     } else {
@@ -180,7 +192,9 @@ export default class CalendarComponent extends Component {
     if (calcWeeksResult.length > 0) {
       const fifthWeek = calcWeeksResult[4].map((day, index) => {
         const dayLabel = this.dayLabels[index];
-        return { dayNumber: day, dayLabel };
+        const tempDate = new Date(this.currentYear, this.activeMonth - 1, day);
+        const month = tempDate.getMonth()+1;
+        return { dayNumber: day, dayLabel, month };
       });
       return fifthWeek;
     } else {
@@ -201,28 +215,28 @@ export default class CalendarComponent extends Component {
 
   @action
   nextMonth() {
-    if (this.currentMonth === 12) {
-      this.currentMonth = 1;
+    if (this.activeMonth === 12) {
+      this.activeMonth = 1;
       this.currentYear++;
     } else {
-      this.currentMonth++;
+      this.activeMonth++;
     }
-    this.currentMonthName = format(
-      new Date(2023, this.currentMonth - 1, 1),
+    this.activeMonthName = format(
+      new Date(2023, this.activeMonth - 1, 1),
       'MMMM'
     );
   }
 
   @action
   previousMonth() {
-    if (this.currentMonth === 1) {
-      this.currentMonth = 12;
+    if (this.activeMonth === 1) {
+      this.activeMonth = 12;
       this.currentYear--;
     } else {
-      this.currentMonth--;
+      this.activeMonth--;
     }
-    this.currentMonthName = format(
-      new Date(2023, this.currentMonth - 1, 1),
+    this.activeMonthName = format(
+      new Date(2023, this.activeMonth - 1, 1),
       'MMMM'
     );
   }
@@ -258,17 +272,18 @@ export default class CalendarComponent extends Component {
       this.currentWeekYear--;
     }
   }
+  
 
   @computed
   get daysInMonth() {
-    const daysInMonth = getDaysInMonth(new Date(this.currentYear, this.currentMonth - 1));
+    const daysInMonth = getDaysInMonth(new Date(this.currentYear, this.activeMonth - 1));
     return Array.from({ length: daysInMonth }, (_, i) => i + 1);
   }
 
   @computed
   get weeksInMonth() {
-    const startOfMonthDate = startOfMonth(new Date(this.currentYear, this.currentMonth - 1, 1));
-    const endOfMonthDate = endOfMonth(new Date(this.currentYear, this.currentMonth - 1, 1));
+    const startOfMonthDate = startOfMonth(new Date(this.currentYear, this.activeMonth - 1, 1));
+    const endOfMonthDate = endOfMonth(new Date(this.currentYear, this.activeMonth - 1, 1));
 
     let currentDay = 1; // Start from the 1st day of the month
     const weeks = [];
@@ -279,7 +294,7 @@ export default class CalendarComponent extends Component {
       
       // Fill the current week with days of the month
       for (let i = 0; i < 7; i++) {
-        const currentDate = new Date(this.currentYear, this.currentMonth - 1, currentDay);
+        const currentDate = new Date(this.currentYear, this.activeMonth - 1, currentDay);
 
         // Check if the current date is still within the month
         if (currentDate <= endOfMonthDate) {
