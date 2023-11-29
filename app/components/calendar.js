@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { format, getDaysInMonth, startOfMonth, endOfMonth, addDays, getWeekOfMonth } from 'date-fns';
+import { format, getDaysInMonth, startOfMonth, endOfMonth, addDays, getWeek, getWeekOfMonth } from 'date-fns';
 import { service } from '@ember/service';
 import { computed } from '@ember/object';
 
@@ -31,6 +31,7 @@ export default class CalendarComponent extends Component {
   @tracked dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
   
 
+  @tracked currentWeekYear = getWeek(new Date(this.currentYear, this.currentMonth - 1, this.currentDay));
   @tracked currentWeek = getWeekOfMonth(new Date(this.currentYear, this.currentMonth - 1, this.currentDay));
   
 
@@ -67,7 +68,7 @@ export default class CalendarComponent extends Component {
   
       let currentDate = new Date(eventStartDate);
   
-      while (currentDate <= eventEndDate) {
+      while (currentDate <= eventEndDate) {  //Use the date-fns library compare function
         if (currentDate.getMonth() >= this.currentMonth) {
           const weekOfMonth = getWeekOfMonth(currentDate);
           if (weekOfMonth === this.currentWeek) {    
@@ -234,6 +235,12 @@ export default class CalendarComponent extends Component {
     } else {
       this.currentWeek++;
     }
+
+    if (this.currentWeekYear === 52) {
+      this.currentWeekYear = 1;
+    }else{
+      this.currentWeekYear++;
+    }
   }
 
   @action
@@ -243,6 +250,12 @@ export default class CalendarComponent extends Component {
       this.previousMonth();
     } else {
       this.currentWeek--;
+    }
+
+    if(this.currentWeekYear === 1){
+      this.currentWeekYear = 52;
+    }else{
+      this.currentWeekYear--;
     }
   }
 
