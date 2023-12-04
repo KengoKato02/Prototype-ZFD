@@ -51,22 +51,22 @@ export default class CalendarComponent extends Component {
     'EEEE'
   );
 
-  @tracked eventTest = [
-    {
-      start_date: new Date(2023, 11, 27),
-      end_date: new Date(2023, 11, 27),
-      description: 'Saugat needs to go to the dentist',
-      team: 'Aarhus',
-      holiday_type: 'Emergency Leave',
-    },
-    {
-      start_date: new Date(2023, 11, 28),
-      end_date: new Date(2023, 11, 29),
-      description: 'Oleg is on holiday',
-      team: 'Aarhus',
-      holiday_type: 'Vacation',
-    },
-  ];
+  // @tracked eventTest = [
+  //   {
+  //     start_date: new Date(2023, 11, 27),
+  //     end_date: new Date(2023, 11, 27),
+  //     description: 'Saugat needs to go to the dentist',
+  //     team: 'Aarhus',
+  //     holiday_type: 'Emergency Leave',
+  //   },
+  //   {
+  //     start_date: new Date(2023, 11, 28),
+  //     end_date: new Date(2023, 11, 29),
+  //     description: 'Oleg is on holiday',
+  //     team: 'Aarhus',
+  //     holiday_type: 'Vacation',
+  //   },
+  // ];
 
   @tracked shownEvents = [];
   @tracked calcShownEvents = [];
@@ -82,17 +82,16 @@ export default class CalendarComponent extends Component {
       const eventEndDate = new Date(input.end_date);
 
       // let currentDate = new Date(eventStartDate);
+      // console.log(this.activeMonth);
+      // console.log(eventStartDate.getMonth()+1);
+      // console.log(compareAsc((eventStartDate.getMonth()+1), this.activeMonth))
 
       while (compareAsc(eventStartDate, eventEndDate) <= 0) {
-        console.log();
-        if (
-          compareAsc(eventStartDate, this.activeMonth) === 0 ||
-          compareAsc(eventStartDate, this.activeMonth) === 1
-        ) {
-          console.log('can show event');
+        if (compareAsc(eventStartDate.getMonth() + 1, this.activeMonth) === 0) {
+          //Check whether the event is same as the current month
           const weekOfEvent = getWeekOfMonth(eventStartDate);
-          console.log(weekOfEvent);
-          console.log(this.currentWeek);
+          // console.log(weekOfEvent);
+          // console.log(this.currentWeek);
           if (weekOfEvent === this.currentWeek) {
             const dayDiff = eventEndDate.getDate() - eventStartDate.getDate();
             if (dayDiff >= 7) {

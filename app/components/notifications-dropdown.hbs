@@ -1,27 +1,30 @@
- <div class="absolute z-10 mt-32 w-[300px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="notifications-menu-button" tabindex="-1">
-  <div class="py-1" role="none">
-    {{!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --}}
-    <div role="menu">
-    
-      <div class="flex-shrink-0">
-        <div class="flex items-center justify-between px-4 py-2">
-          <a href="#" class="text-gray-700 block text-sm" role="menu" tabindex="-1" id="unread-notifications">Saugat is awaiting for approval</a>
-          <button type="button" class="ml-3 flex-shrink-0 rounded-md bg-white text-sm font-medium text-indigo hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">New</button>
-        </div>
-      </div>   
-    
-    </div>
+ <div class="relative">
+  <div class="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+    <div class="py-1" role="none">
+      {{!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --}}
+      <div role="menu">
+      
+        <div class="flex-shrink-0">
+          <div class="flex items-center justify-between px-4 py-2">
+            <a href="#" class="text-gray-700 block text-sm" role="menu" tabindex="-1" id="unread-notifications">Saugat is awaiting for approval</a>
+            <button type="button" class="ml-3 flex-shrink-0 rounded-md bg-white text-sm font-medium text-indigo hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">New</button>
+          </div>
+        </div>   
+      
+      </div>
 
-    <div role="menu">
-    {{!-- {{#each this.readNotifications as |notification|}} --}}
-      <div class="flex-shrink-0">
-        <div class="flex items-center justify-between px-4 py-2 bg-tablegray">
-          <a href="#" class="text-gray-700 block text-sm" role="menu" tabindex="-1" id="read-notifications">Oleg is awaiting for approval</a>
-          <button type="button"  class="ml-3 flex-shrink-0 rounded-md bg-tablegray text-sm font-medium text-graytext hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Seen</button>
-        </div>
-      </div>   
-    {{!-- {{/each}} --}}
-    </div>
+      <div role="menu">
+      {{!-- {{#each this.readNotifications as |notification|}} --}}
+        <div class="flex-shrink-0">
+          <div class="flex items-center justify-between px-4 py-2 bg-tablegray">
+            <a href="#" class="text-gray-700 block text-sm" role="menu" tabindex="-1" id="read-notifications">Oleg is awaiting for approval</a>
+            <button type="button"  class="ml-3 flex-shrink-0 rounded-md bg-tablegray text-sm font-medium text-graytext hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Seen</button>
+          </div>
+        </div>   
+      {{!-- {{/each}} --}}
+      </div>
 
+    </div>
   </div>
 </div>
+ 

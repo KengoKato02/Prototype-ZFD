@@ -38,10 +38,14 @@ export default class LoginRoute extends Route {
   @action
   async login(email, password) {
     try {
-      await this.session.authenticate('authenticator:token', email, password);
+      await this.session.authenticate('authenticator:token', {
+        email,
+        password,
+      });
+      console.log('worked');
+      this.router.transitionTo('authenticated.calendar');
     } catch (error) {
       console.log(error);
     }
-    console.log(this.session);
   }
 }

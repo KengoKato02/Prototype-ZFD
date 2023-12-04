@@ -7,16 +7,14 @@ export default class BookHolidayModalComponent extends Component {
   @service holiday;
 
   @tracked holidays = {
+    holiday_type_id: 2,
     start_date: Date,
     end_date: Date,
     description: '',
-    team: '',
-    holiday_type: '',
   };
 
   @action
   bookHoliday() {
-    this.holiday = this.holidays;
-    console.log(this.holiday);
+    this.holiday.addHoliday(this.holidays)
   }
 }

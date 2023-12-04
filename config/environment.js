@@ -50,17 +50,12 @@ module.exports = function (environment) {
     routeAfterAuthentication: 'authenticated.calendar',
   };
   ENV['ember-simple-auth-token'] = {
-    refreshAccessTokens: true,
-    refreshLeeway: 300,
-    timeFactor: 1000,
-    // tokenPropertyName: 'token',
-    // authorizationHeaderName: 'Authorization',
-    // authorizationPrefix: 'Bearer ',
-    // serverTokenRefreshEndpoint: '/api/token-auth/',
-    // serverTokenEndpoint: '/api/token-refresh/',
-    serverTokenRefreshEndpoint: 'http://localhost:3000/api/login',
-    serverTokenEndpoint: 'http://localhost:3000/api/login',
-    // serverTokenRefreshModel: 'refresh-token',
+    serverTokenEndpoint: 'http://localhost:3000/auth/login', // Your API login route
+    tokenPropertyName: 'token', // Property name in the API response for the token
+    refreshTokenPropertyName: 'token', // Property name in the API response for the refresh token (optional)
+    tokenExpireName: 'exp', // Property name in the API response for the token expiration time (optional)
+    refreshLeeway: 300, // Time in seconds before the token expires to refresh it (optional)
+    refreshAccessTokens: true, // Whether to refresh access tokens (optional)
   };
 
   return ENV;
