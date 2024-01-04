@@ -15,5 +15,5 @@ export default class UserDataService extends Service {
     email: '',
     password: '',
     is_admin: false,
-  };
+};
 }
