@@ -11,7 +11,7 @@ export default class HolidayService extends Service {
   }
 
   async addHoliday(holidayInput) {
-    console.log(holidayInput)
+    console.log(holidayInput);
     const newHoliday = this.store.createRecord('holiday', holidayInput);
     try {
       await newHoliday.save();
@@ -19,7 +19,7 @@ export default class HolidayService extends Service {
       console.error('Error adding holiday:', error);
     }
   }
-  
+
   @tracked holidays = [
     {
       start_date: new Date(2023, 11, 27),

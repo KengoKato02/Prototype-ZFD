@@ -15,6 +15,6 @@ export default class BookHolidayModalComponent extends Component {
 
   @action
   bookHoliday() {
-    this.holiday.addHoliday(this.holidays)
+    this.holiday.addHoliday(this.holidays);
   }
 }
