@@ -14,12 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('wasuup');
+  res.send('Hello World');
 });
 
-
 app.use('/auth', authenticationRoutes); //login
-
 
 app.use('/holidays', holidayRoutes);
 app.use('/teams', teamRoutes);

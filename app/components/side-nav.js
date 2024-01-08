@@ -7,6 +7,12 @@ export default class SideNavComponent extends Component {
   @service router;
 
   @tracked isOpen = false;
+  @tracked isNotificationsOpen = false;
+
+  @action
+  toggleNotificationsDropDown() {
+    this.isNotificationsOpen = !this.isNotificationsOpen;
+  }
 
   @action
   toggleProfileDropDown() {

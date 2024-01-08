@@ -44,5 +44,19 @@ module.exports = function (environment) {
     // here you can enable a production-specific feature
   }
 
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token', // Use the token authorizer
+    // routeAfterInvalidation: 'login',
+    routeAfterAuthentication: 'authenticated.calendar',
+  };
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: 'http://localhost:3000/auth/login', // Your API login route
+    tokenPropertyName: 'token', // Property name in the API response for the token
+    refreshTokenPropertyName: 'token', // Property name in the API response for the refresh token (optional)
+    tokenExpireName: 'exp', // Property name in the API response for the token expiration time (optional)
+    refreshLeeway: 300, // Time in seconds before the token expires to refresh it (optional)
+    refreshAccessTokens: true, // Whether to refresh access tokens (optional)
+  };
+
   return ENV;
 };

@@ -3,7 +3,6 @@ const pool = require('../../db');
 const queries = require('./queries');
 const res = require('express/lib/response');
 
-
 const getHolidays = (req, res) => {
   pool.query(queries.getHolidays, (error, results) => {
     if (error) throw error;
@@ -19,24 +18,30 @@ const getHolidayById = (req, res) => {
   });
 };
 
+// I have edited this function to add a holiday through a POST request
 const addHolidays = (req, res) => {
-  const { holiday_type_id, holiday_name } = req.body;
+  // What is passed in the body of the request
+  const { holiday_types_id, start_date, end_date, description } = req.body;
+  const user_id = req.user_id; // Get the user_id from the actual request itself
 
-  //check if holiday_name exists
-  pool.query(queries.checkHoliday, [holiday_name], (error, results) => {
-    if (results.rows.length) {
-      res.send('holiday already exists');
+  const approval_status = false; // Default should always be set to false when created
+
+  pool.query(
+    // Add a holiday here to the the holidays list
+    queries.addHolidays, // Make the query
+    [
+      holiday_types_id,
+      user_id,
+      start_date,
+      end_date,
+      description,
+      approval_status,
+    ], // Pass the body
+    (error, results) => {
+      if (error) throw error;
+      res.status(201).send('Holiday successfully created');
     }
-    //add holiday
-    pool.query(
-      queries.addHolidays,
-      [holiday_type_id, holiday_name],
-      (error, results) => {
-        if (error) throw error;
-        res.status(201).send('Holiday successfully created');
-      }
-    );
-  });
+  );
 };
 
 const removeHoliday = (req, res) => {
