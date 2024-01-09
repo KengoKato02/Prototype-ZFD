@@ -5,8 +5,8 @@ import { action } from '@ember/object';
 export default class AuthenticatedProfileRoute extends Route {
   @service userData;
 
-  model() {
-    return this.userData.user;
+  async model() {
+    return await this.userData.user;
   }
 
   setupController(controller, model, transition) {
