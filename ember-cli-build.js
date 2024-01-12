@@ -7,7 +7,8 @@ const autoprefixer = require('autoprefixer');
 const tailwind = require('tailwindcss');
 
 module.exports = function (defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
+    'ember-cli-babel': { enableTypeScriptTransform: true },
     postcssOptions: {
       cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\/config\.js$/],
       compile: {
