@@ -22,7 +22,8 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.5",
@@ -95,12 +96,15 @@
     "ember-template-lint": "^5.11.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-welcome-page": "^7.0.2",
-    "eslint": "^8.52.0",
+    "eslint": "^8.54.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-ember": "^11.9.0",
+    "eslint-plugin-jest": "^27.6.3",
     "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^8.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "loader.js": "^4.7.0",
     "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
