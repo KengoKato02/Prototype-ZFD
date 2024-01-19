@@ -12,4 +12,6 @@
 # ember-try
 /.node_modules.ember-try/
 
+*.css
+
 /API

@@ -34,7 +34,7 @@ module.exports = {
     jest: true,
     globals: true,
   },
-  ignorePatterns: ["*.test.ts"],
+  ignorePatterns: ["*.test.ts", "**/*.css"], 
   overrides: [
     // node files
     {
@@ -42,6 +42,7 @@ module.exports = {
         './.eslintrc.js',
         './.prettierrc.js',
         './.stylelintrc.js',
+        './tailwind.config.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
         './testem.js',
@@ -50,6 +51,9 @@ module.exports = {
         './lib/*/index.js',
         './server/**/*.js',
       ],
+      rules: {
+        'n/import-notation': 'off',
+      },
       parserOptions: {
         sourceType: 'script',
       },
