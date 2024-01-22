@@ -25,16 +25,6 @@ module.exports = {
   rules: {
     'ember/no-action': 'off',
   },
-  //ESLINT
-  plugins: ["jest", "@typescript-eslint"],
-  parser: "@typescript-eslint/parser",
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  env: {
-    node: true,
-    jest: true,
-    globals: true,
-  },
-  ignorePatterns: ["*.test.ts", "**/*.css"], 
   overrides: [
     // node files
     {
