@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "lint:filesystem": "ls-lint",
     "lint:pkg": "npmPkgJsonLint .",
     "postbuild": "./scripts/postbuild.sh",
@@ -40,7 +41,8 @@
     "eslint": "~8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "nx": "17.2.8",
-    "prettier": "^2.6.2",
-    "typescript": "~5.2.2"
+    "prettier": "^2.8.8",
+    "typescript": "~5.2.2",
+    "husky": "8.0.3"
   }
 }
