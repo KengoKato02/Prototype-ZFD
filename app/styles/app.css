@@ -1,5 +1,5 @@
 /* eslint disable import-notation */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "pages/authenticated";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'pages/authenticated';

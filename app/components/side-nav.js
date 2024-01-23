@@ -1,22 +1,22 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
+import Component from '@glimmer/component'
+import { action } from '@ember/object'
+import { tracked } from '@glimmer/tracking'
+import { service } from '@ember/service'
 
 export default class SideNavComponent extends Component {
-  @service router;
+  @service router
 
-  @tracked isOpen = false;
-  @tracked isNotificationsOpen = false;
+  @tracked isOpen = false
+  @tracked isNotificationsOpen = false
 
   @action
   toggleNotificationsDropDown() {
-    this.isNotificationsOpen = !this.isNotificationsOpen;
+    this.isNotificationsOpen = !this.isNotificationsOpen
   }
 
   @action
   toggleProfileDropDown() {
-    this.isOpen = !this.isOpen;
+    this.isOpen = !this.isOpen
   }
 
   // get pageTitle() {

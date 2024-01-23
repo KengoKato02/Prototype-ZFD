@@ -13,7 +13,7 @@ module.exports = {
       ],
     },
   },
-  plugins: ['ember'],
+  plugins: ['ember', 'html', 'n'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -23,7 +23,7 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'ember/no-action': 'off',
+    'no-action': 'off',
   },
   overrides: [
     // node files
@@ -39,6 +39,7 @@ module.exports = {
         './config/**/*.js',
         './lib/*/index.js',
         './server/**/*.js',
+        './styles/app.css',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -47,7 +48,11 @@ module.exports = {
         browser: false,
         node: true,
       },
+      plugins: ['n'],
       extends: ['plugin:n/recommended'],
+      rules: {
+        'n/no-action': 'off',
+      },
     },
     {
       // test files
