@@ -1,10 +1,18 @@
-<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-  
-  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+{{! eslint-disable no-action }}
+<div
+  class='relative z-10'
+  aria-labelledby='modal-title'
+  role='dialog'
+  aria-modal='true'
+>
 
-  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-      {{!--
+  <div class='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity'></div>
+
+  <div class='fixed inset-0 z-10 w-screen overflow-y-auto'>
+    <div
+      class='flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0'
+    >
+      {{!
         Modal panel, show/hide based on modal state.
 
         Entering: "ease-out duration-300"
@@ -13,82 +21,133 @@
         Leaving: "ease-in duration-200"
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-      --}}
-      <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-        <div class="sm:flex sm:items-start">
-          <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-            <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Request to book a holiday</h3>
-            <div class="mt-2">
-              <p class="text-sm text-gray-500">Once you send the request for the holiday, you will have to wait until the status of approval has been accepted</p>
+      }}
+      <div
+        class='relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6'
+      >
+        <div class='sm:flex sm:items-start'>
+          <div class='mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left'>
+            <h3
+              class='text-base font-semibold leading-6 text-gray-900'
+              id='modal-title'
+            >Request to book a holiday</h3>
+            <div class='mt-2'>
+              <p class='text-sm text-gray-500'>Once you send the request for the
+                holiday, you will have to wait until the status of approval has
+                been accepted</p>
             </div>
           </div>
         </div>
 
-       <div class="pl-4">
-         <label for="start-date" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Holiday Start Date</label>
-         <div class="">
-           <input 
-            type="date" 
-            form="addForm" 
-            id="start-date" 
-            value={{this.holidays.start_date}}
-            {{on 'input' (action (mut this.holidays.start_date) value='target.value')}}
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-         </div>
-       
-         <label for="contract-end" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Holiday End Date</label>
-         <div class="">
-           <input 
-              type="date" 
-              form="addForm" 
-              id="contract-end" 
+        <div class='pl-4'>
+          <label
+            for='start-date'
+            class='mt-4 block text-sm font-medium leading-6 text-gray-900'
+          >Holiday Start Date</label>
+          <div class=''>
+            <input
+              type='date'
+              form='addForm'
+              id='start-date'
+              value={{this.holidays.start_date}}
+              {{on
+                'input'
+                (action (mut this.holidays.start_date) value='target.value')
+              }}
+              class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            />
+          </div>
+
+          <label
+            for='contract-end'
+            class='mt-4 block text-sm font-medium leading-6 text-gray-900'
+          >Holiday End Date</label>
+          <div class=''>
+            <input
+              type='date'
+              form='addForm'
+              id='contract-end'
               value={{this.holidays.end_date}}
-              {{on 'input' (action (mut this.holidays.end_date) value='target.value')}}
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-         </div>
+              {{on
+                'input'
+                (action (mut this.holidays.end_date) value='target.value')
+              }}
+              class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            />
+          </div>
 
-         <label for="person-salary" class="mt-4 block text-sm font-medium leading-6 text-gray-900">Description</label>
-         <div class="">
-           <input 
-              type="text" 
-              form="addForm" 
-              id="description" 
+          <label
+            for='person-salary'
+            class='mt-4 block text-sm font-medium leading-6 text-gray-900'
+          >Description</label>
+          <div class=''>
+            <input
+              type='text'
+              form='addForm'
+              id='description'
               value={{this.holidays.description}}
-              {{on 'input' (action (mut this.holidays.description) value='target.value')}}
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              placeholder="Enter here why you need this holiday if applicable">
-         </div> 
-       
-           
-         <div class="sm:col-span-2 mt-4">
-           <label for="department" class="block text-sm font-medium leading-6 text-gray-900">Team</label>
-           <div class="mt-2">
-             <select id="department" name="department" autocomplete="department-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-               <option>Copenhagen</option>
-               <option>Aarhus</option>
-               <option>Odense</option>
-             </select>
-           </div>
-         </div>
+              {{on
+                'input'
+                (action (mut this.holidays.description) value='target.value')
+              }}
+              class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+              placeholder='Enter here why you need this holiday if applicable'
+            />
+          </div>
 
-         <div class="sm:col-span-2 mt-4">
-           <label for="holiday-type" class="block text-sm font-medium leading-6 text-gray-900">Holiday type</label>
-           <div class="mt-2">
-             <select id="holiday-type" name="holiday-type" autocomplete="holiday-type-name" class="block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-               <option>Sick Leave</option>
-               <option>Vacation</option>
-               <option>Emergency</option>
-               <option>Lieu Day</option>
-               <option>Christmas</option>
-               <option>Easter</option>
-             </select>
-           </div>
-         </div>
+          <div class='sm:col-span-2 mt-4'>
+            <label
+              for='department'
+              class='block text-sm font-medium leading-6 text-gray-900'
+            >Team</label>
+            <div class='mt-2'>
+              <select
+                id='department'
+                name='department'
+                autocomplete='department-name'
+                class='block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
+              >
+                <option>Copenhagen</option>
+                <option>Aarhus</option>
+                <option>Odense</option>
+              </select>
+            </div>
+          </div>
+
+          <div class='sm:col-span-2 mt-4'>
+            <label
+              for='holiday-type'
+              class='block text-sm font-medium leading-6 text-gray-900'
+            >Holiday type</label>
+            <div class='mt-2'>
+              <select
+                id='holiday-type'
+                name='holiday-type'
+                autocomplete='holiday-type-name'
+                class='block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
+              >
+                <option>Sick Leave</option>
+                <option>Vacation</option>
+                <option>Emergency</option>
+                <option>Lieu Day</option>
+                <option>Christmas</option>
+                <option>Easter</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div class="pt-10 sm:mt-4 sm:flex sm:flex-row-reverse">
-          <button type="button" {{on 'click' this.bookHoliday}} class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto">Request Holiday</button>
-          <button type="button" {{on 'click' @toggleBookHoliday}} class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+        <div class='pt-10 sm:mt-4 sm:flex sm:flex-row-reverse'>
+          <button
+            type='button'
+            {{on 'click' this.bookHoliday}}
+            class='inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto'
+          >Request Holiday</button>
+          <button
+            type='button'
+            {{on 'click' @toggleBookHoliday}}
+            class='mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto'
+          >Cancel</button>
         </div>
 
       </div>
