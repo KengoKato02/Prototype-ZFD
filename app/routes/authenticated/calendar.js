@@ -22,6 +22,7 @@ export default class AuthenticatedCalendarRoute extends Route {
     controller.set('employee', model.employee);
 
     controller.set('addEmployee', this.addEmployee.bind(this));
+    controller.set('addHoliday', this.addHoliday.bind(this));
   }
 
   @action
@@ -35,5 +36,17 @@ export default class AuthenticatedCalendarRoute extends Route {
     console.log(newEmployee);
 
     await newEmployee.save();
+  }
+
+  @action
+  async addHoliday(input) {
+    const newHoliday = this.store.createRecord('holiday', {
+      start_date: input.start_date,
+      end_date: input.end_date,
+      description: input.description,
+      employee_id: parseInt(input.employee_id),
+    });
+
+    await newHoliday.save();
   }
 }

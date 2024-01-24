@@ -49,10 +49,10 @@
               type='date'
               form='addForm'
               id='start-date'
-              value={{this.holidays.start_date}}
+              value={{this.input.start_date}}
               {{on
                 'input'
-                (action (mut this.holidays.start_date) value='target.value')
+                (action (mut this.input.start_date) value='target.value')
               }}
               class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             />
@@ -67,10 +67,10 @@
               type='date'
               form='addForm'
               id='contract-end'
-              value={{this.holidays.end_date}}
+              value={{this.input.end_date}}
               {{on
                 'input'
-                (action (mut this.holidays.end_date) value='target.value')
+                (action (mut this.input.end_date) value='target.value')
               }}
               class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             />
@@ -85,10 +85,10 @@
               type='text'
               form='addForm'
               id='description'
-              value={{this.holidays.description}}
+              value={{this.input.description}}
               {{on
                 'input'
-                (action (mut this.holidays.description) value='target.value')
+                (action (mut this.input.description) value='target.value')
               }}
               class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               placeholder='Enter here why you need this holiday if applicable'
@@ -110,6 +110,32 @@
                 <option>Copenhagen</option>
                 <option>Aarhus</option>
                 <option>Odense</option>
+              </select>
+            </div>
+          </div>
+
+          <div class='sm:col-span-2 mt-4'>
+            <label
+              for='employee'
+              class='block text-sm font-medium leading-6 text-gray-900'
+            >Employee</label>
+            <div class='mt-2'>
+              <select
+                id='employee'
+                name='employee'
+                autocomplete='department-name'
+                {{on
+                  'change'
+                  (action (mut this.input.employee_id) value='target.value')
+                }}
+                value={{this.input.employee_id}}
+                class='block w-full bg-slate-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
+              >
+                {{#each @employeeData as |employee|}}
+                  <option
+                    value={{employee.employee_id}}
+                  >{{employee.name}}</option>
+                {{/each}}
               </select>
             </div>
           </div>
@@ -140,7 +166,7 @@
         <div class='pt-10 sm:mt-4 sm:flex sm:flex-row-reverse'>
           <button
             type='button'
-            {{on 'click' this.bookHoliday}}
+            {{on 'click' (fn @addHoliday this.input)}}
             class='inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto'
           >Request Holiday</button>
           <button

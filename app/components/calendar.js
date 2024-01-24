@@ -53,23 +53,6 @@ export default class CalendarComponent extends Component {
 
   @tracked employeeList = this.employee.getEmployees();
 
-  // @tracked eventTest = [
-  //   {
-  //     start_date: new Date(2023, 11, 27),
-  //     end_date: new Date(2023, 11, 27),
-  //     description: 'Saugat needs to go to the dentist',
-  //     team: 'Aarhus',
-  //     holiday_type: 'Emergency Leave',
-  //   },
-  //   {
-  //     start_date: new Date(2023, 11, 28),
-  //     end_date: new Date(2023, 11, 29),
-  //     description: 'Oleg is on holiday',
-  //     team: 'Aarhus',
-  //     holiday_type: 'Vacation',
-  //   },
-  // ];
-
   @tracked shownEvents = [];
   @tracked calcShownEvents = [];
 
@@ -99,7 +82,7 @@ export default class CalendarComponent extends Component {
             if (dayDiff >= 7) {
               input.dayDiff = 7;
             }
-            input.dayDiff = dayDiff;
+            input.dayDiff = dayDiff + 1;
             input.dayOfWeek = dayOfWeek;
             this.shownEvents.push(input);
           }
@@ -107,6 +90,7 @@ export default class CalendarComponent extends Component {
 
         // Move to the next day
         eventStartDate.setDate(eventStartDate.getDate() + 1);
+        // eventEndDate.setDate(eventEndDate.getDate() + 1);
       }
     });
   }

@@ -21,25 +21,20 @@ const getHolidayById = (req, res) => {
 // I have edited this function to add a holiday through a POST request
 const addHolidays = (req, res) => {
   // What is passed in the body of the request
-  const { holiday_types_id, start_date, end_date, description } = req.body;
-  const user_id = req.user_id; // Get the user_id from the actual request itself
-
-  const approval_status = false; // Default should always be set to false when created
+  const { start_date, end_date, description, employee_id } = req.body;
 
   pool.query(
     // Add a holiday here to the the holidays list
     queries.addHolidays, // Make the query
     [
-      holiday_types_id,
-      user_id,
       start_date,
       end_date,
       description,
-      approval_status,
+      employee_id,
     ], // Pass the body
     (error, results) => {
       if (error) throw error;
-      res.status(201).send('Holiday successfully created');
+      res.status(201).json('Holiday successfully created');
     }
   );
 };
