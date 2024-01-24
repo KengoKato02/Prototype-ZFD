@@ -22,8 +22,8 @@ export default class HolidayDataService extends Service {
 
   @tracked holidays = [
     {
-      start_date: new Date(2023, 11, 27),
-      end_date: new Date(2023, 11, 27),
+      start_date: new Date(2024, 1, 24),
+      end_date: new Date(2024, 1, 26),
       description: 'Saugat needs to go to the dentist',
       team: 'Aarhus',
       holiday_type: 'Emergency Leave',

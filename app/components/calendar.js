@@ -76,31 +76,27 @@ export default class CalendarComponent extends Component {
     this.events(this.holidayData.holidays);
   }
 
-  events(eventInput) {
-    eventInput.forEach((input) => {
+  events() {
+    this.args.holidayData.forEach((input) => {
       const eventStartDate = new Date(input.start_date);
       const eventEndDate = new Date(input.end_date);
 
-      // let currentDate = new Date(eventStartDate);
-      // console.log(this.activeMonth);
-      // console.log(eventStartDate.getMonth()+1);
-      // console.log(compareAsc((eventStartDate.getMonth()+1), this.activeMonth))
-
-      while (compareAsc(eventStartDate, eventEndDate) <= 0) {
+      if (compareAsc(eventStartDate, eventEndDate) === -1) {
         if (compareAsc(eventStartDate.getMonth() + 1, this.activeMonth) === 0) {
           //Check whether the event is same as the current month
           const weekOfEvent = getWeekOfMonth(eventStartDate);
-          // console.log(weekOfEvent);
-          // console.log(this.currentWeek);
+          const dayOfWeek = eventStartDate.getDay() + 1;
+
+          console.log(weekOfEvent);
+
           if (weekOfEvent === this.currentWeek) {
             const dayDiff = eventEndDate.getDate() - eventStartDate.getDate();
             if (dayDiff >= 7) {
               input.dayDiff = 7;
             }
             input.dayDiff = dayDiff;
+            input.dayOfWeek = dayOfWeek;
             this.shownEvents.push(input);
-
-            break;
           }
         }
 
