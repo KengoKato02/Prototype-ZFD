@@ -5,7 +5,7 @@ export default class HolidaySerializer extends RESTSerializer {
     payload = {
       holidays: payload,
     };
-    console.log();
+
     return super.normalizeResponse(
       store,
       primaryModelClass,

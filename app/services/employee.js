@@ -1,8 +1,13 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default class EmployeesService extends Service {
+export default class EmployeeService extends Service {
+  @service store;
+  @service session;
+  @service router;
+
   @tracked employees = [
     {
       first_name: 'Oleg',
@@ -36,10 +41,13 @@ export default class EmployeesService extends Service {
     console.log(this.employees);
   }
 
-  async getEmployees(){
-    console.log('getEmployees');
-    const employees = await this.store.findAll('employee');
-    console.log(employees);
-    return employees;
+  async getEmployees() {
+    try {
+      const response = await this.store.findAll('employee');
+      return response;
+    } catch (error) {
+      console.error('Error fetching employees:', error);
+      return error;
+    }
   }
 }

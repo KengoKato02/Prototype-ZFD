@@ -95,7 +95,7 @@ devDependencies:
     specifier: ^4.0.2
     version: 4.0.2
   ember-data:
-    specifier: ~5.1.0
+    specifier: ~5.1.2
     version: 5.1.2(@babel/core@7.23.3)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(ember-source@5.4.0)
   ember-fetch:
     specifier: ^8.1.2

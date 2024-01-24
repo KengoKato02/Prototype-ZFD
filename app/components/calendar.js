@@ -108,7 +108,6 @@ export default class CalendarComponent extends Component {
         eventStartDate.setDate(eventStartDate.getDate() + 1);
       }
     });
-    console.log(this.shownEvents);
   }
 
   get calcWeeks() {
@@ -119,8 +118,8 @@ export default class CalendarComponent extends Component {
     const totalDaysInMonth = getDaysInMonth(
       new Date(this.currentYear, this.activeMonth - 1, 1)
     );
-    const weeks = [];
 
+    const weeks = [];
     let currentWeek = [];
 
     // Fill the first week with the days from the previous month
@@ -149,6 +148,10 @@ export default class CalendarComponent extends Component {
         const day = week * 7 + i - startDay + 1;
 
         if (day > totalDaysInMonth) {
+          // Stop adding more weeks if we've reached the last week of the month
+          if (week === Math.ceil((totalDaysInMonth + startDay) / 7)) {
+            break;
+          }
           // Reset the day to start from 1 when transitioning to the next month
           currentWeek.push(day - totalDaysInMonth);
         } else {
@@ -276,7 +279,7 @@ export default class CalendarComponent extends Component {
   @action
   nextWeek() {
     if (this.currentWeek === 5) {
-      this.currentWeek = 1;
+      this.currentWeek = 2;
       this.nextMonth();
     } else {
       this.currentWeek++;
@@ -292,7 +295,7 @@ export default class CalendarComponent extends Component {
   @action
   previousWeek() {
     if (this.currentWeek === 1) {
-      this.currentWeek = 5;
+      this.currentWeek = 4;
       this.previousMonth();
     } else {
       this.currentWeek--;
