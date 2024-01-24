@@ -1,4 +1,4 @@
-{{#each @employees.employees as |employee|}}
+{{#each @employeeData as |employee|}}
   <div class='-ml-56 -mt-2.5'>
     <li class='relative flex space-x-6 py-6 w-fit left-0 z-20'>
       <img
@@ -9,7 +9,7 @@
       <div class='flex-auto'>
         <h3
           class='pr-10 font-semibold text-gray-900 xl:pr-0'
-        >{{employee.first_name}} {{employee.last_name}}</h3>
+        >{{employee.name}}</h3>
         <dl class='mt-2 flex flex-col text-gray-500 xl:flex-row'>
 
           <div class='flex items-start space-x-3'>

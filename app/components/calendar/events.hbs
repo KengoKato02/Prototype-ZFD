@@ -3,12 +3,12 @@
   style='grid-template-rows: 3rem repeat(288, minmax(0, 1fr)) auto'
 >
 
-  {{#each @shownEvents as |event|}}
+  {{#each @shownEvents as |event index|}}
     <li
-      class='relative mt-px hidden sm:col-start-{{event.dayOfWeek}}
+      class='relative mt-px hidden col-start-{{event.dayOfWeek}}
         col-span-{{event.dayDiff}}
         sm:flex'
-      style='grid-row: 1 / span 32'
+      style={{this.employeeGridMap index}}
     >
       <a
         href='#'

@@ -1,4 +1,8 @@
 {{page-title 'Calendar'}}
 <SideNav @title='Calendar'>
-  <Calendar @holidayData={{this.holiday}} />
+  <Calendar
+    @holidayData={{this.holiday}}
+    @employeeData={{this.employee}}
+    @addEmployee={{this.addEmployee}}
+  />
 </SideNav>

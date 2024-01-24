@@ -4,7 +4,6 @@ const queries = require('./queries');
 const res = require('express/lib/response');
 
 const getHolidays = (req, res) => {
-  console.log('called')
   pool.query(queries.getHolidays, (error, results) => {
     if (error) throw error;
     res.status(200).json(results.rows);

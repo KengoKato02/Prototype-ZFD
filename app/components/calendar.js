@@ -86,6 +86,7 @@ export default class CalendarComponent extends Component {
           //Check whether the event is same as the current month
           const weekOfEvent = getWeekOfMonth(eventStartDate);
           const dayOfWeek = eventStartDate.getDay() + 1;
+          console.log(dayOfWeek);
 
           console.log(weekOfEvent);
 
