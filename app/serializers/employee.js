@@ -1,9 +1,9 @@
 import RESTSerializer from '@ember-data/serializer/rest';
 
-export default class HolidaySerializer extends RESTSerializer {
+export default class EmployeeSerializer extends RESTSerializer {
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     payload = {
-      holidays: payload,
+      employees: payload,
     };
 
     return super.normalizeResponse(

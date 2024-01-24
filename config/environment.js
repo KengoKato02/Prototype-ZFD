@@ -44,11 +44,12 @@ module.exports = function (environment) {
     // here you can enable a production-specific feature
   }
 
-  // ENV['ember-simple-auth'] = {
-  //   authorizer: 'authorizer:token', // Use the token authorizer
-  //   // routeAfterInvalidation: 'login',
-  //   routeAfterAuthentication: 'authenticated.calendar',
-  // };
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token', // Use the token authorizer
+    authenticationRoute: 'login',
+    routeAfterAuthentication: 'authenticated.calendar',
+  };
+
   ENV['ember-simple-auth-token'] = {
     serverTokenEndpoint: 'http://localhost:3000/auth/login', // Your API login route
     identificationField: 'email', // API property used to identify a user

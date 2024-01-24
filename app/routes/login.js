@@ -26,7 +26,6 @@ export default class LoginRoute extends Route {
         email,
         password,
       });
-      console.log('returned');
       this.router.transitionTo('authenticated.calendar');
     } catch (error) {
       console.log(error);

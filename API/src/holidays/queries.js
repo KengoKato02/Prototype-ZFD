@@ -1,4 +1,4 @@
-const getHolidays = 'SELECT * FROM holiday_types';
+const getHolidays = 'SELECT * FROM holidays';
 const getHolidayById = 'SELECT * FROM holidays WHERE user_id = $1';
 const getHolidayTypeByID =
   'SELECT * FROM holiday_types WHERE holiday_type_id = $1';
