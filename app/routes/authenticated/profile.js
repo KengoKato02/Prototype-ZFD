@@ -5,6 +5,7 @@ import { action } from '@ember/object'
 
 export default class AuthenticatedProfileRoute extends Route {
   @service userData
+  @service session
 
   async model() {
     return await this.userData.user

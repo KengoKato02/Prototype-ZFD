@@ -1,6 +1,6 @@
-import Service from '@ember/service'
-import { tracked } from '@glimmer/tracking'
-import { action } from '@ember/object'
+import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class EmployeesService extends Service {
   @tracked employees = [
@@ -28,11 +28,11 @@ export default class EmployeesService extends Service {
       team: 'Dolphins',
       role: 'Manager',
     },
-  ]
+  ];
 
   @action
   addEmployee(input) {
-    this.employees.push(input)
-    console.log(this.employees)
+    this.employees.push(input);
+    console.log(this.employees);
   }
 }
