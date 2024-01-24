@@ -308,9 +308,20 @@
               <li
                 class='relative flex text-center items-center justify-center space-x-6 py-6 w-fit left-0 z-20'
               >
+
+                {{#if (gt @employeeData.length 5)}}{{else}}
+
+                {{/if}}
                 <button
                   type='button'
-                  {{on 'click' this.toggleSidePanel}}
+                  {{on
+                    'click'
+                    (if
+                      (gte @employeeData.length 5)
+                      this.triggerInvalidModal
+                      this.toggleSidePanel
+                    )
+                  }}
                   class='rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                 >
                   <svg
@@ -365,8 +376,15 @@
   {{#if this.isSidePanelOpen}}
     <SidePanel
       @toggleSidePanel={{this.toggleSidePanel}}
+      @employeeData={{@employeeData}}
       @addEmployee={{@addEmployee}}
     />
+  {{/if}}
+
+  {{#if this.invalidModal}}
+    <ModalDialog @translucentOverlay={{true}}>
+      <Modal::InvalidModal @triggerInvalidModal={{this.triggerInvalidModal}} />
+    </ModalDialog>
   {{/if}}
 
 </div>
