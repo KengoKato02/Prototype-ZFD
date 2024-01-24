@@ -35,4 +35,11 @@ export default class EmployeesService extends Service {
     this.employees.push(input);
     console.log(this.employees);
   }
+
+  async getEmployees(){
+    console.log('getEmployees');
+    const employees = await this.store.findAll('employee');
+    console.log(employees);
+    return employees;
+  }
 }

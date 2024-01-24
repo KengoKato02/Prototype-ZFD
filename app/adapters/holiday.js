@@ -1,6 +1,5 @@
-import ApplicationAdapter from './application';
-import getApiEndpoint from './get-apiconfig';
+import RESTAdapter from '@ember-data/adapter/rest';
 
-export default class HolidayAdapter extends ApplicationAdapter {
-  host = getApiEndpoint();
+export default class HolidayAdapter extends RESTAdapter {
+  host = 'http://localhost:3000';
 }

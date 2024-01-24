@@ -1,13 +1,11 @@
-import JSONAPISerializer from '@ember-data/serializer/json-api';
+import RESTSerializer from '@ember-data/serializer/rest';
 
-export default class HolidaySerializer extends JSONAPISerializer {
+export default class HolidaySerializer extends RESTSerializer {
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    payload.data = payload.data.map((holiday) => {
-      holiday.attributes.start_date = new Date(holiday.attributes.start_date);
-      holiday.attributes.end_date = new Date(holiday.attributes.end_date);
-      return holiday;
-    });
-
+    payload = {
+      holidays: payload,
+    };
+    console.log();
     return super.normalizeResponse(
       store,
       primaryModelClass,

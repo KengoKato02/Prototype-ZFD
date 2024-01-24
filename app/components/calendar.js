@@ -13,7 +13,7 @@ import {
 import { service } from '@ember/service';
 
 export default class CalendarComponent extends Component {
-  @service holiday;
+  @service holidayData;
   @service employee;
 
   @tracked isModalOpen = false;
@@ -49,6 +49,8 @@ export default class CalendarComponent extends Component {
     'EEEE'
   );
 
+  @tracked employeeList = this.employee.getEmployees();
+
   // @tracked eventTest = [
   //   {
   //     start_date: new Date(2023, 11, 27),
@@ -71,7 +73,7 @@ export default class CalendarComponent extends Component {
 
   constructor() {
     super(...arguments);
-    this.events(this.holiday.holidays);
+    this.events(this.holidayData.holidays);
   }
 
   events(eventInput) {
@@ -110,25 +112,27 @@ export default class CalendarComponent extends Component {
   }
 
   get calcWeeks() {
-    const startDate = new Date(this.startOfMonthDate);
-    const startDay = startDate.getDay();
-    const daysInPreviousMonth = getDaysInMonth(
-      new Date(this.currentYear, this.activeMonth - 2, 1)
+    const startOfMonthDate = startOfMonth(
+      new Date(this.currentYear, this.activeMonth - 1, 1)
+    );
+    const startDay = startOfMonthDate.getDay();
+    const totalDaysInMonth = getDaysInMonth(
+      new Date(this.currentYear, this.activeMonth - 1, 1)
     );
     const weeks = [];
 
     let currentWeek = [];
 
     // Fill the first week with the days from the previous month
+    const daysInPreviousMonth = getDaysInMonth(
+      new Date(this.currentYear, this.activeMonth - 2, 1)
+    );
+
     for (let i = startDay - 1; i >= 0; i--) {
       currentWeek.push(daysInPreviousMonth - i);
     }
 
     // Fill the remaining days of the first week with the current month
-    const totalDaysInMonth = getDaysInMonth(
-      new Date(this.currentYear, this.activeMonth - 1, 1)
-    );
-
     for (let i = 0; i < 7 - startDay; i++) {
       currentWeek.push(i + 1);
     }
@@ -143,12 +147,15 @@ export default class CalendarComponent extends Component {
       currentWeek = [];
       for (let i = 0; i < 7; i++) {
         const day = week * 7 + i - startDay + 1;
-        if (day <= totalDaysInMonth) {
-          currentWeek.push(day);
-          remainingDays--;
-        } else {
+
+        if (day > totalDaysInMonth) {
+          // Reset the day to start from 1 when transitioning to the next month
           currentWeek.push(day - totalDaysInMonth);
+        } else {
+          currentWeek.push(day);
         }
+
+        remainingDays--;
       }
       weeks.push(currentWeek);
       week++;

@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class BookHolidayModalComponent extends Component {
-  @service holiday;
+  @service holidayData;
 
   @tracked holidays = {
     holiday_type_id: 2,
@@ -15,6 +15,6 @@ export default class BookHolidayModalComponent extends Component {
 
   @action
   bookHoliday() {
-    this.holiday.addHoliday(this.holidays);
+    this.holidayData.addHoliday(this.holidays);
   }
 }

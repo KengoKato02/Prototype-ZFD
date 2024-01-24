@@ -47,24 +47,6 @@ const login = async (req, res) => {
   res.json({status:"success", data:{token:token}});
 };
 
-const logout = async (req, res) => {
-  res.json({ message: 'User logged out successfully' });
-};
-
-// const refreshToken = async (req, res) => {
-//   const { token } = req.body;
-
-//   try {
-//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-//     const newToken = jwt.sign({ userId: decoded.userId }, process.env.JWT_SECRET);
-
-//     res.json({ token: newToken });
-//   } catch (error) {
-//     res.status(401).json({ error: 'Invalid token' });
-//   }
-// };
-
 module.exports = {
   login,
   register,
