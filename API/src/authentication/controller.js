@@ -8,8 +8,6 @@ const register = async (req, res) => {
   // Check if the user already exists
   const existingUser = await getUserByEmail(email);
 
-  console.log('Existing User:', existingUser);
-
   if (existingUser) {
     return res.status(409).json({ error: 'User already exists' });
   }
@@ -25,6 +23,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body)
 
   // Get the user from the database
   const user = await getUserByEmail(email);
@@ -42,9 +41,29 @@ const login = async (req, res) => {
 
   // Generate a JWT
   const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+  console.log(token)
 
-  res.json({ token, message: 'Login successful' });
+  // res.json(token);
+  res.json({status:"success", data:{token:token}});
 };
+
+const logout = async (req, res) => {
+  res.json({ message: 'User logged out successfully' });
+};
+
+// const refreshToken = async (req, res) => {
+//   const { token } = req.body;
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+//     const newToken = jwt.sign({ userId: decoded.userId }, process.env.JWT_SECRET);
+
+//     res.json({ token: newToken });
+//   } catch (error) {
+//     res.status(401).json({ error: 'Invalid token' });
+//   }
+// };
 
 module.exports = {
   login,

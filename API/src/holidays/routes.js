@@ -5,8 +5,6 @@ const router = Router();
 
 router.get('/', controller.getHolidays);
 
-// router.get('/:id', controller.getHolidayTypeByID);
-
 router.get('/:id', controller.getHolidayById);
 
 router.post('/', controller.addHolidays);

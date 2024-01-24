@@ -1,5 +1,5 @@
-import Service from '@ember/service'
-import { tracked } from '@glimmer/tracking'
+import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class UserDataService extends Service {
   @tracked user = {
@@ -15,5 +15,5 @@ export default class UserDataService extends Service {
     email: '',
     password: '',
     is_admin: false,
-  }
+  };
 }

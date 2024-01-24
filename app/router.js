@@ -1,21 +1,21 @@
-import EmberRouter from '@ember/routing/router'
-import config from 'prototype-1/config/environment'
+import EmberRouter from '@ember/routing/router';
+import config from 'prototype-1/config/environment';
 
 export default class Router extends EmberRouter {
-  location = config.locationType
-  rootURL = config.rootURL
+  location = config.locationType;
+  rootURL = config.rootURL;
 }
 
 Router.map(function () {
-  this.route('home-page', { path: '' })
+  this.route('home-page', { path: '' });
 
   this.route('authenticated', function () {
-    this.route('sign-up')
-    this.route('dashboard')
-    this.route('colleagues')
-    this.route('holiday')
-    this.route('profile')
-    this.route('calendar')
-  })
-  this.route('login')
-})
+    this.route('sign-up');
+    this.route('dashboard');
+    this.route('colleagues');
+    this.route('holiday');
+    this.route('profile');
+    this.route('calendar');
+  });
+  this.route('login');
+});
