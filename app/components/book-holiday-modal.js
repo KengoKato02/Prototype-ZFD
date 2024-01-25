@@ -17,7 +17,7 @@ export default class BookHolidayModalComponent extends Component {
     start_date: Date,
     end_date: Date,
     description: '',
-    employee_id: 1,
+    employee_id: null,
   };
 
   @action

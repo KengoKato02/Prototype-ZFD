@@ -22,6 +22,7 @@ const getHolidayById = (req, res) => {
 const addHolidays = (req, res) => {
   // What is passed in the body of the request
   const { start_date, end_date, description, employee_id } = req.body;
+  console.log(req.body)
 
   pool.query(
     // Add a holiday here to the the holidays list
