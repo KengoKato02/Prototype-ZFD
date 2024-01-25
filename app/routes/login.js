@@ -12,7 +12,6 @@ export default class LoginRoute extends Route {
 
   beforeModel() {
     this.session.setup();
-    this.session.prohibitAuthentication('authenticated.calendar');
   }
 
   async model() {

@@ -5,7 +5,7 @@ export default class TokenAuthenticator extends Base {
   async authenticate(credentials) {
     const { email, password } = credentials;
 
-    if (email === 'OlegM@gmail.com' && password === 'password') {
+    if (email && password) {
       const authenticationData = {
         access_token: '123',
       };
