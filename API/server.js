@@ -10,6 +10,8 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 const corsOptions = {
   origin: 'http://localhost:4200',
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
@@ -18,8 +20,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World');

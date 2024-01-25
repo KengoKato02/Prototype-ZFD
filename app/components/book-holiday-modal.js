@@ -13,6 +13,13 @@ export default class BookHolidayModalComponent extends Component {
     description: '',
   };
 
+  @tracked input = {
+    start_date: Date,
+    end_date: Date,
+    description: '',
+    employee_id: null,
+  };
+
   @action
   bookHoliday() {
     this.holidayData.addHoliday(this.holidays);

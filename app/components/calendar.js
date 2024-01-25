@@ -19,6 +19,8 @@ export default class CalendarComponent extends Component {
   @tracked isModalOpen = false;
   @tracked isSidePanelOpen = false;
 
+  @tracked invalidModal = false;
+
   @tracked currentYear = new Date().getFullYear();
   @tracked activeMonth = new Date().getMonth() + 1;
   @tracked activeMonthName = format(
@@ -51,23 +53,6 @@ export default class CalendarComponent extends Component {
 
   @tracked employeeList = this.employee.getEmployees();
 
-  // @tracked eventTest = [
-  //   {
-  //     start_date: new Date(2023, 11, 27),
-  //     end_date: new Date(2023, 11, 27),
-  //     description: 'Saugat needs to go to the dentist',
-  //     team: 'Aarhus',
-  //     holiday_type: 'Emergency Leave',
-  //   },
-  //   {
-  //     start_date: new Date(2023, 11, 28),
-  //     end_date: new Date(2023, 11, 29),
-  //     description: 'Oleg is on holiday',
-  //     team: 'Aarhus',
-  //     holiday_type: 'Vacation',
-  //   },
-  // ];
-
   @tracked shownEvents = [];
   @tracked calcShownEvents = [];
 
@@ -77,6 +62,8 @@ export default class CalendarComponent extends Component {
   }
 
   events() {
+    this.shownEvents = [];
+
     this.args.holidayData.forEach((input) => {
       const eventStartDate = new Date(input.start_date);
       const eventEndDate = new Date(input.end_date);
@@ -95,7 +82,7 @@ export default class CalendarComponent extends Component {
             if (dayDiff >= 7) {
               input.dayDiff = 7;
             }
-            input.dayDiff = dayDiff;
+            input.dayDiff = dayDiff + 1;
             input.dayOfWeek = dayOfWeek;
             this.shownEvents.push(input);
           }
@@ -103,6 +90,7 @@ export default class CalendarComponent extends Component {
 
         // Move to the next day
         eventStartDate.setDate(eventStartDate.getDate() + 1);
+        // eventEndDate.setDate(eventEndDate.getDate() + 1);
       }
     });
   }
@@ -236,6 +224,11 @@ export default class CalendarComponent extends Component {
   }
 
   @action
+  triggerInvalidModal() {
+    this.invalidModal = !this.invalidModal;
+  }
+
+  @action
   toggleBookHoliday() {
     this.isModalOpen = !this.isModalOpen;
   }
@@ -273,6 +266,11 @@ export default class CalendarComponent extends Component {
     );
   }
 
+  updateEvents() {
+    this.shownEvents = [];
+    this.events();
+  }
+
   @action
   nextWeek() {
     if (this.currentWeek === 5) {
@@ -287,6 +285,8 @@ export default class CalendarComponent extends Component {
     } else {
       this.currentWeekYear++;
     }
+
+    this.updateEvents();
   }
 
   @action
@@ -303,6 +303,8 @@ export default class CalendarComponent extends Component {
     } else {
       this.currentWeekYear--;
     }
+
+    this.updateEvents();
   }
 
   get daysInMonth() {
