@@ -26,8 +26,7 @@ const addHolidays = (req, res) => {
 
   pool.query(
     // Add a holiday here to the the holidays list
-    queries.addHolidays, // Make the query
-    [
+    queries.addHolidays, // Make the query 
       start_date,
       end_date,
       description,
